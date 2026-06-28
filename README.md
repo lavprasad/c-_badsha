@@ -39,19 +39,20 @@ For Linux (per the user's note that scripts are Linux-targeted) the same flags w
 
 ## Roadmap (high-level)
 
-| Day | Theme |
-|----:|-------|
-| 01  | Hello-world anatomy, I/O, variables, types, operators |
-| 02  | Control flow: `if`, `switch`, loops, `break`/`continue` |
-| 03  | Functions, parameter passing, overloading, default args |
-| 04  | Arrays, C-strings, `std::string`, references vs pointers |
-| 05  | Pointers deep dive, dynamic memory, RAII intro |
-| 06  | Structs, classes, constructors, destructors, `this` |
-| 07  | Inheritance, polymorphism, virtual functions, abstract classes |
-| 08  | Templates (function & class), type deduction |
-| 09  | STL containers: `vector`, `map`, `set`, `unordered_map` |
-| 10  | STL algorithms, iterators, lambdas |
-| 11+ | Move semantics, smart pointers, exceptions, concurrency, modern C++... |
+| Day | Theme | Status |
+|----:|-------|--------|
+| 01  | Hello-world anatomy, I/O, variables, types, operators | ✅ |
+| 02  | Control flow: `if`, `switch`, loops, `break`/`continue` | ✅ |
+| 03  | Functions, parameter passing, overloading, default args | ✅ |
+| 04  | Arrays, C-strings, `std::string`, references vs pointers | ✅ |
+| 05  | Pointers deep dive, dynamic memory, RAII intro | ✅ |
+| 06  | Structs, classes, constructors, destructors, `this` | ✅ |
+| 07  | Inheritance, polymorphism, virtual functions, abstract classes | ✅ |
+| 08  | Templates (function & class), type deduction | ✅ |
+| 09  | STL containers: `vector`, `map`, `set`, `unordered_map` | ✅ |
+| 10  | STL algorithms, iterators, lambdas | ✅ |
+| 11  | Move semantics, smart pointers, exceptions, `noexcept` | ✅ |
+| 12+ | Concurrency, `constexpr` deep dive, file I/O, design patterns… | planned |
 
 The roadmap will adjust based on your pace and the doubts you raise.
 
