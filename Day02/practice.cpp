@@ -57,7 +57,7 @@ int main()
     // std::cout << "Final value " << n << '\n';
 
     // do while loop 6
-    int count = 0;
+    // int count = 0;
 
     // do
     // {
@@ -66,5 +66,10 @@ int main()
     // }
 
     // while (count < 3);
+
+    // 7 break and continue
+
+    std::cout << "Odd numbers from 1 to 10";
+
     return 0;
 }
