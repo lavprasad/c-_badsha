@@ -56,5 +56,15 @@ int main()
     // std::cout << "Halving 100 until <= 1 took " << steps << "steps\n";
     // std::cout << "Final value " << n << '\n';
 
-        return 0;
+    // do while loop 6
+    int count = 0;
+
+    // do
+    // {
+    //     std::cout << "Iteration " << count << '\n';
+    //     ++count;
+    // }
+
+    // while (count < 3);
+    return 0;
 }
