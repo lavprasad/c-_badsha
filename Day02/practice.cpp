@@ -69,7 +69,84 @@ int main()
 
     // 7 break and continue
 
-    std::cout << "Odd numbers from 1 to 10";
+    // std::cout << "Odd numbers from 1 to 10\n";
+
+    // for (int i = 1; i <= 10; ++i)
+    // {
+    //     if (i % 2 == 0)
+    //     {
+    //         continue;
+    //     }
+    //     std::cout << i << '\n';
+    // }
+
+    // std::cout << "\n";
+    // std::cout << "if multipile of 7 then break\n";
+    // for (int k = 51;; ++k)
+    // {
+    //     if (k % 7 == 0)
+    //     {
+    //         std::cout << k << '\n';
+    //         break;
+    //     }
+    // }
+
+    // 8 nested loop
+
+    // int size = 5;
+
+    // std::cout << "Multiplication table 1 to " << size << ": \n";
+    // for (int row = 1; row <= size; ++row)
+    // {
+    //     for (int col = 1; col <= size; ++col)
+    //     {
+    //         std::cout << col * row << "\t";
+    //     }
+    //     std::cout << '\n';
+    // }
+
+    // scope 9
+
+    // int outer = 10;
+
+    // if (outer > 0)
+    // {
+    //     int inner = 20;
+    //     std::cout << "Inside if: outer = " << outer << " , inner = " << inner << '\n';
+    // }
+
+    // for (int i = 0; i < 3; ++i)
+    // {
+    //     int doubled = i * i;
+    //     std::cout << "i = " << i << " , doubled is " << doubled << '\n';
+    // }
+
+    // std::cout << "outter is " << outer << '\n';
+
+    // Pitfall 10
+
+    int x = 10;
+
+    if (x > 0)
+        if (x < 10)
+            std::cout << "x is between 1 to 10\n";
+        else
+            std::cout << "this else is inner\n";
+
+    char grade = 'B';
+    switch (grade)
+    {
+    case 'A':
+    case 'B':
+        std::cout << " you got B\n";
+        break;
+    }
+
+    // pitfall 3
+    for (int i = 3; i >= 0; --i)
+    {
+        std::cout << i << '\n';
+    }
 
     return 0;
 }
