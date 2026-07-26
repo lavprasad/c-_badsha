@@ -39,20 +39,23 @@ For Linux (per the user's note that scripts are Linux-targeted) the same flags w
 
 ## Roadmap (high-level)
 
-| Day | Theme | Status |
-|----:|-------|--------|
-| 01  | Hello-world anatomy, I/O, variables, types, operators | ✅ |
-| 02  | Control flow: `if`, `switch`, loops, `break`/`continue` | ✅ |
-| 03  | Functions, parameter passing, overloading, default args | ✅ |
-| 04  | Arrays, C-strings, `std::string`, references vs pointers | ✅ |
-| 05  | Pointers deep dive, dynamic memory, RAII intro | ✅ |
-| 06  | Structs, classes, constructors, destructors, `this` | ✅ |
-| 07  | Inheritance, polymorphism, virtual functions, abstract classes | ✅ |
-| 08  | Templates (function & class), type deduction | ✅ |
-| 09  | STL containers: `vector`, `map`, `set`, `unordered_map` | ✅ |
-| 10  | STL algorithms, iterators, lambdas | ✅ |
-| 11  | Move semantics, smart pointers, exceptions, `noexcept` | ✅ |
-| 12+ | Concurrency, `constexpr` deep dive, file I/O, design patterns… | planned |
+| Days | Phase | Status |
+|-----:|-------|--------|
+| 01–11 | Foundations → STL → move/smart ptrs/exceptions | ✅ handcrafted |
+| 12–51 | Intermediate core (I/O, enums, operators, chrono, C++17 library, templates) | ✅ |
+| 52–81 | OOP design, patterns, API craft, build/link, UB | ✅ |
+| 82–111 | Concurrency, systems, networking, perf, allocators, POSIX | ✅ |
+| 112–151 | C++20/23, concepts/ranges, metaprogramming, domain mindsets | ✅ |
+| 152–181 | Algorithms & DS practice, interviews, craft habits | ✅ |
+| 182–211 | Capstone projects & specialized tracks | ✅ |
+
+Each day still follows: **10 concepts** + **10 examples** + **5 questions** + **answers**.
+
+Regenerate Days 12–211 (if needed) with:
+
+```bash
+python3 tools/gen_days.py
+```
 
 The roadmap will adjust based on your pace and the doubts you raise.
 
