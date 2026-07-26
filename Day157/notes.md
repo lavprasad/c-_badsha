@@ -1,6 +1,12 @@
 # Day 157 -- Trees basics
 
-Today's goal: build a working mental model of **Trees basics** and practice it with small, compile-ready examples.
+Today's goal: understand **Trees basics** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,231 @@ Today's goal: build a working mental model of **Trees basics** and practice it w
 
 ## 1. Binary tree nodes
 
-Focus for this concept: understand **what problem `Binary tree nodes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Binary tree nodes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Binary tree nodes** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Binary tree nodes
+#include <iostream>
+int main() {
+  std::cout << "practice: Binary tree nodes\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Binary tree nodes` before you write code that uses it.
+- **Common mistake:** Using `Binary tree nodes` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Traversals
 
-Focus for this concept: understand **what problem `Traversals` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Traversals` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Traversals** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Traversals
+#include <iostream>
+int main() {
+  std::cout << "practice: Traversals\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Traversals` before you write code that uses it.
+- **Common mistake:** Using `Traversals` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. BST insert/search
 
-Focus for this concept: understand **what problem `BST insert/search` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `BST insert/search` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **BST insert/search** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: BST insert/search
+#include <iostream>
+int main() {
+  std::cout << "practice: BST insert/search\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `BST insert/search` before you write code that uses it.
+- **Common mistake:** Using `BST insert/search` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Height/depth
 
-Focus for this concept: understand **what problem `Height/depth` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Height/depth` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Height/depth** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Height/depth
+#include <iostream>
+int main() {
+  std::cout << "practice: Height/depth\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Height/depth` before you write code that uses it.
+- **Common mistake:** Using `Height/depth` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. LCA idea
 
-Focus for this concept: understand **what problem `LCA idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `LCA idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **LCA idea** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: LCA idea
+#include <iostream>
+int main() {
+  std::cout << "practice: LCA idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `LCA idea` before you write code that uses it.
+- **Common mistake:** Using `LCA idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Serialization idea
 
-Focus for this concept: understand **what problem `Serialization idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Serialization idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Serialization idea** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Serialization idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Serialization idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Serialization idea` before you write code that uses it.
+- **Common mistake:** Using `Serialization idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Ownership of nodes
 
-Focus for this concept: understand **what problem `Ownership of nodes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Ownership of nodes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Ownership of nodes** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Ownership of nodes
+#include <iostream>
+int main() {
+  std::cout << "practice: Ownership of nodes\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Ownership of nodes` before you write code that uses it.
+- **Common mistake:** Using `Ownership of nodes` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Iterative traversal
 
-Focus for this concept: understand **what problem `Iterative traversal` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Iterative traversal` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Iterative traversal** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Iterative traversal
+#include <iostream>
+int main() {
+  std::cout << "practice: Iterative traversal\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Iterative traversal` before you write code that uses it.
+- **Common mistake:** Using `Iterative traversal` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Balancedness idea
 
-Focus for this concept: understand **what problem `Balancedness idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Balancedness idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Balancedness idea** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Balancedness idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Balancedness idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Balancedness idea` before you write code that uses it.
+- **Common mistake:** Using `Balancedness idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Build a BST
 
-Focus for this concept: understand **what problem `Build a BST` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Build a BST` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Build a BST** — fits inside the wider theme of Trees basics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Build a BST
+#include <iostream>
+int main() {
+  std::cout << "practice: Build a BST\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Build a BST` before you write code that uses it.
+- **Common mistake:** Using `Build a BST` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 157
 
 - Explain `Trees basics` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

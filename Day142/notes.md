@@ -1,6 +1,12 @@
 # Day 142 -- Security hardening C++
 
-Today's goal: build a working mental model of **Security hardening C++** and practice it with small, compile-ready examples.
+Today's goal: understand **Security hardening C++** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,226 @@ Today's goal: build a working mental model of **Security hardening C++** and pra
 
 ## 1. Untrusted input
 
-Focus for this concept: understand **what problem `Untrusted input` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Untrusted input` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Untrusted input** — fits inside the wider theme of Security hardening C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Untrusted input
+#include <iostream>
+int main() {
+  std::cout << "practice: Untrusted input\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Untrusted input` before you write code that uses it.
+- **Common mistake:** Using `Untrusted input` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Integer truncation
 
-Focus for this concept: understand **what problem `Integer truncation` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Integer truncation` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Integer truncation** — fits inside the wider theme of Security hardening C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Integer truncation
+#include <iostream>
+int main() {
+  std::cout << "practice: Integer truncation\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Integer truncation` before you write code that uses it.
+- **Common mistake:** Using `Integer truncation` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Buffer sizes
 
-Focus for this concept: understand **what problem `Buffer sizes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Buffer sizes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Buffer sizes** — fits inside the wider theme of Security hardening C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Buffer sizes
+#include <iostream>
+int main() {
+  std::cout << "practice: Buffer sizes\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Buffer sizes` before you write code that uses it.
+- **Common mistake:** Using `Buffer sizes` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. TOCTOU idea
 
-Focus for this concept: understand **what problem `TOCTOU idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `TOCTOU idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **TOCTOU idea** — fits inside the wider theme of Security hardening C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: TOCTOU idea
+#include <iostream>
+int main() {
+  std::cout << "practice: TOCTOU idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `TOCTOU idea` before you write code that uses it.
+- **Common mistake:** Using `TOCTOU idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Privilege separation idea
 
-Focus for this concept: understand **what problem `Privilege separation idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Privilege separation idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Privilege separation idea** — fits inside the wider theme of Security hardening C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Privilege separation idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Privilege separation idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Privilege separation idea` before you write code that uses it.
+- **Common mistake:** Using `Privilege separation idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Secrets in memory
 
-Focus for this concept: understand **what problem `Secrets in memory` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Secrets in memory` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+DP solves overlapping subproblems once and stores answers. Greedy picks locally best choices when a proof allows it. Backtracking explores choices and undoes them.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<long long> dp(n + 1);
+dp[0] = 0;
+for (int i = 1; i <= n; ++i)
+  dp[i] = dp[i - 1] + i;  // toy example
+```
+
+- **Remember:** Define the state and transition in words before coding.
+- **Common mistake:** Memoising without a clear state key → wrong answers.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Safe APIs
 
-Focus for this concept: understand **what problem `Safe APIs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Safe APIs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Safe APIs** — fits inside the wider theme of Security hardening C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Safe APIs
+#include <iostream>
+int main() {
+  std::cout << "practice: Safe APIs\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Safe APIs` before you write code that uses it.
+- **Common mistake:** Using `Safe APIs` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Dependency risk
 
-Focus for this concept: understand **what problem `Dependency risk` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Dependency risk` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Threat modeling lite
 
-Focus for this concept: understand **what problem `Threat modeling lite` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Threat modeling lite` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Threat modeling lite** — fits inside the wider theme of Security hardening C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Threat modeling lite
+#include <iostream>
+int main() {
+  std::cout << "practice: Threat modeling lite\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Threat modeling lite` before you write code that uses it.
+- **Common mistake:** Using `Threat modeling lite` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Harden a file reader
 
-Focus for this concept: understand **what problem `Harden a file reader` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Harden a file reader` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Harden a file reader** — fits inside the wider theme of Security hardening C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Harden a file reader
+#include <iostream>
+int main() {
+  std::cout << "practice: Harden a file reader\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Harden a file reader` before you write code that uses it.
+- **Common mistake:** Using `Harden a file reader` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 142
 
 - Explain `Security hardening C++` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

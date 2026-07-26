@@ -1,6 +1,12 @@
 # Day 138 -- Inlining & linkage
 
-Today's goal: build a working mental model of **Inlining & linkage** and practice it with small, compile-ready examples.
+Today's goal: understand **Inlining & linkage** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,217 @@ Today's goal: build a working mental model of **Inlining & linkage** and practic
 
 ## 1. inline functions
 
-Focus for this concept: understand **what problem `inline functions` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `inline functions` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **inline functions** — fits inside the wider theme of Inlining & linkage. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: inline functions
+#include <iostream>
+int main() {
+  std::cout << "practice: inline functions\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `inline functions` before you write code that uses it.
+- **Common mistake:** Using `inline functions` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. inline variables (C++17)
 
-Focus for this concept: understand **what problem `inline variables (C++17)` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `inline variables (C++17)` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **inline variables (C++17)** — fits inside the wider theme of Inlining & linkage. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: inline variables (C++17)
+#include <iostream>
+int main() {
+  std::cout << "practice: inline variables (C++17)\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `inline variables (C++17)` before you write code that uses it.
+- **Common mistake:** Using `inline variables (C++17)` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. ODR with inline
 
-Focus for this concept: understand **what problem `ODR with inline` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `ODR with inline` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Headers declare the interface; `.cpp` files define the bodies. Include guards stop a header from being pasted twice into one translation unit. The One Definition Rule says non-inline functions have exactly one definition in the whole program.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#pragma once
+struct Widget;           // forward decl — enough for pointers/refs
+void use(Widget*);
+```
+
+- **Remember:** Declarations in headers, definitions in `.cpp` (templates excepted).
+- **Common mistake:** Defining a non-inline function in a header included by two `.cpp` files → multiple definition linker error.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. COMDAT idea
 
-Focus for this concept: understand **what problem `COMDAT idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `COMDAT idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **COMDAT idea** — fits inside the wider theme of Inlining & linkage. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: COMDAT idea
+#include <iostream>
+int main() {
+  std::cout << "practice: COMDAT idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `COMDAT idea` before you write code that uses it.
+- **Common mistake:** Using `COMDAT idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. LTO mindset
 
-Focus for this concept: understand **what problem `LTO mindset` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `LTO mindset` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Always_inline caution
 
-Focus for this concept: understand **what problem `Always_inline caution` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Always_inline caution` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Always_inline caution** — fits inside the wider theme of Inlining & linkage. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Always_inline caution
+#include <iostream>
+int main() {
+  std::cout << "practice: Always_inline caution\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Always_inline caution` before you write code that uses it.
+- **Common mistake:** Using `Always_inline caution` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Outline cold paths
 
-Focus for this concept: understand **what problem `Outline cold paths` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Outline cold paths` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::filesystem` gives portable paths and directory walks. Prefer `path` objects over hand-rolled string concatenation for joining folders.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <filesystem>
+namespace fs = std::filesystem;
+for (auto& e : fs::directory_iterator(".")) {
+  std::cout << e.path() << '\n';
+}
+```
+
+- **Remember:** Check `exists` / handle errors — disks fail.
+- **Common mistake:** Assuming `/` path separators on every OS without using `path`.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Template linkage
 
-Focus for this concept: understand **what problem `Template linkage` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Template linkage` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Templates generate code per type. They move errors to compile time and remove runtime virtual dispatch. Keep them readable; constrain parameters when you can.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+template <typename T>
+T clamp_pos(T x) {
+  return x < T{0} ? T{0} : x;
+}
+```
+
+- **Remember:** Templates usually live in headers so every TU can instantiate them.
+- **Common mistake:** Putting a template definition only in a `.cpp` and wondering why the linker fails.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Anonymous namespace linkage
 
-Focus for this concept: understand **what problem `Anonymous namespace linkage` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Anonymous namespace linkage` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Namespaces group names so `draw` in graphics does not clash with `draw` in cards. Prefer `std::` qualification; avoid `using namespace std;` in headers.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+namespace app {
+  void run();
+}
+void app::run() { /* ... */ }
+```
+
+- **Remember:** Never put `using namespace std;` in a header.
+- **Common mistake:** Dumping everything into the global namespace and getting silent overload clashes.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Header pitfalls
 
-Focus for this concept: understand **what problem `Header pitfalls` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Header pitfalls` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Headers declare the interface; `.cpp` files define the bodies. Include guards stop a header from being pasted twice into one translation unit. The One Definition Rule says non-inline functions have exactly one definition in the whole program.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#pragma once
+struct Widget;           // forward decl — enough for pointers/refs
+void use(Widget*);
+```
+
+- **Remember:** Declarations in headers, definitions in `.cpp` (templates excepted).
+- **Common mistake:** Defining a non-inline function in a header included by two `.cpp` files → multiple definition linker error.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 138
 
 - Explain `Inlining & linkage` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

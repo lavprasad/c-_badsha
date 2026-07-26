@@ -1,6 +1,12 @@
 # Day 137 -- Copy elision & ABI
 
-Today's goal: build a working mental model of **Copy elision & ABI** and practice it with small, compile-ready examples.
+Today's goal: understand **Copy elision & ABI** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,231 @@ Today's goal: build a working mental model of **Copy elision & ABI** and practic
 
 ## 1. Mandatory elision
 
-Focus for this concept: understand **what problem `Mandatory elision` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Mandatory elision` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Mandatory elision** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Mandatory elision
+#include <iostream>
+int main() {
+  std::cout << "practice: Mandatory elision\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Mandatory elision` before you write code that uses it.
+- **Common mistake:** Using `Mandatory elision` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. NRVO
 
-Focus for this concept: understand **what problem `NRVO` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `NRVO` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **NRVO** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: NRVO
+#include <iostream>
+int main() {
+  std::cout << "practice: NRVO\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `NRVO` before you write code that uses it.
+- **Common mistake:** Using `NRVO` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. When copies remain
 
-Focus for this concept: understand **what problem `When copies remain` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `When copies remain` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **When copies remain** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: When copies remain
+#include <iostream>
+int main() {
+  std::cout << "practice: When copies remain\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `When copies remain` before you write code that uses it.
+- **Common mistake:** Using `When copies remain` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. ABI and registers
 
-Focus for this concept: understand **what problem `ABI and registers` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `ABI and registers` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **ABI and registers** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: ABI and registers
+#include <iostream>
+int main() {
+  std::cout << "practice: ABI and registers\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `ABI and registers` before you write code that uses it.
+- **Common mistake:** Using `ABI and registers` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Passing large objects
 
-Focus for this concept: understand **what problem `Passing large objects` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Passing large objects` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Passing large objects** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Passing large objects
+#include <iostream>
+int main() {
+  std::cout << "practice: Passing large objects\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Passing large objects` before you write code that uses it.
+- **Common mistake:** Using `Passing large objects` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Returning large objects
 
-Focus for this concept: understand **what problem `Returning large objects` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Returning large objects` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Returning large objects** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Returning large objects
+#include <iostream>
+int main() {
+  std::cout << "practice: Returning large objects\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Returning large objects` before you write code that uses it.
+- **Common mistake:** Using `Returning large objects` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. [[no_unique_address]]
 
-Focus for this concept: understand **what problem `[[no_unique_address]]` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `[[no_unique_address]]` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **[[no_unique_address]]** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: [[no_unique_address]]
+#include <iostream>
+int main() {
+  std::cout << "practice: [[no_unique_address]]\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `[[no_unique_address]]` before you write code that uses it.
+- **Common mistake:** Using `[[no_unique_address]]` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Empty bases
 
-Focus for this concept: understand **what problem `Empty bases` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Empty bases` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Empty bases** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Empty bases
+#include <iostream>
+int main() {
+  std::cout << "practice: Empty bases\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Empty bases` before you write code that uses it.
+- **Common mistake:** Using `Empty bases` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Measuring
 
-Focus for this concept: understand **what problem `Measuring` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Measuring` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Measuring** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Measuring
+#include <iostream>
+int main() {
+  std::cout << "practice: Measuring\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Measuring` before you write code that uses it.
+- **Common mistake:** Using `Measuring` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Elision demo
 
-Focus for this concept: understand **what problem `Elision demo` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Elision demo` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Elision demo** — fits inside the wider theme of Copy elision & ABI. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Elision demo
+#include <iostream>
+int main() {
+  std::cout << "practice: Elision demo\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Elision demo` before you write code that uses it.
+- **Common mistake:** Using `Elision demo` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 137
 
 - Explain `Copy elision & ABI` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

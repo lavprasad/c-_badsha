@@ -1,6 +1,12 @@
 # Day 182 -- Project: CLI text tools
 
-Today's goal: build a working mental model of **Project: CLI text tools** and practice it with small, compile-ready examples.
+Today's goal: understand **Project: CLI text tools** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,241 @@ Today's goal: build a working mental model of **Project: CLI text tools** and pr
 
 ## 1. Requirements
 
-Focus for this concept: understand **what problem `Requirements` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Requirements` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Argument parsing
 
-Focus for this concept: understand **what problem `Argument parsing` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Argument parsing` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Line processing
 
-Focus for this concept: understand **what problem `Line processing` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Line processing` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Streaming I/O
 
-Focus for this concept: understand **what problem `Streaming I/O` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Streaming I/O` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Exit codes
 
-Focus for this concept: understand **what problem `Exit codes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Exit codes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Tests
 
-Focus for this concept: understand **what problem `Tests` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Tests` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Performance
 
-Focus for this concept: understand **what problem `Performance` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Performance` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. UX messages
 
-Focus for this concept: understand **what problem `UX messages` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `UX messages` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Packaging
 
-Focus for this concept: understand **what problem `Packaging` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Packaging` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Ship wc/grep-lite
 
-Focus for this concept: understand **what problem `Ship wc/grep-lite` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Ship wc/grep-lite` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 182
 
 - Explain `Project: CLI text tools` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

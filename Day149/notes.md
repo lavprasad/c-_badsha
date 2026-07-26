@@ -1,6 +1,12 @@
 # Day 149 -- Feature flags & config
 
-Today's goal: build a working mental model of **Feature flags & config** and practice it with small, compile-ready examples.
+Today's goal: understand **Feature flags & config** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,234 @@ Today's goal: build a working mental model of **Feature flags & config** and pra
 
 ## 1. Compile-time flags
 
-Focus for this concept: understand **what problem `Compile-time flags` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Compile-time flags` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Compile-time flags** — fits inside the wider theme of Feature flags & config. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Compile-time flags
+#include <iostream>
+int main() {
+  std::cout << "practice: Compile-time flags\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Compile-time flags` before you write code that uses it.
+- **Common mistake:** Using `Compile-time flags` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Runtime config files
 
-Focus for this concept: understand **what problem `Runtime config files` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Runtime config files` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Runtime config files** — fits inside the wider theme of Feature flags & config. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Runtime config files
+#include <iostream>
+int main() {
+  std::cout << "practice: Runtime config files\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Runtime config files` before you write code that uses it.
+- **Common mistake:** Using `Runtime config files` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Environment overrides
 
-Focus for this concept: understand **what problem `Environment overrides` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Environment overrides` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Virtual functions let you call the derived implementation through a base pointer/reference. Abstract classes (pure virtuals) define interfaces. Always give polymorphic bases a virtual destructor.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Shape {
+  virtual ~Shape() = default;
+  virtual double area() const = 0;
+};
+struct Circle : Shape {
+  double r;
+  double area() const override { return 3.14 * r * r; }
+};
+```
+
+- **Remember:** Use `override` so signature mistakes fail at compile time.
+- **Common mistake:** Deleting a derived object via a non-virtual base destructor.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Typed config structs
 
-Focus for this concept: understand **what problem `Typed config structs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Typed config structs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+A class bundles data with the operations that keep it valid. Constructors establish invariants; destructors release resources. `struct` defaults to public, `class` to private — that is the main difference.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+class Counter {
+  int n_ = 0;
+public:
+  void inc() { ++n_; }
+  int get() const { return n_; }
+};
+```
+
+- **Remember:** Keep data private if invariants matter; expose operations.
+- **Common mistake:** Public data fields that let callers break class invariants.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Validation on load
 
-Focus for this concept: understand **what problem `Validation on load` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Validation on load` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Validation on load** — fits inside the wider theme of Feature flags & config. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Validation on load
+#include <iostream>
+int main() {
+  std::cout << "practice: Validation on load\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Validation on load` before you write code that uses it.
+- **Common mistake:** Using `Validation on load` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Hot reload risks
 
-Focus for this concept: understand **what problem `Hot reload risks` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Hot reload risks` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Hot reload risks** — fits inside the wider theme of Feature flags & config. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Hot reload risks
+#include <iostream>
+int main() {
+  std::cout << "practice: Hot reload risks\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Hot reload risks` before you write code that uses it.
+- **Common mistake:** Using `Hot reload risks` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Defaults & migrations
 
-Focus for this concept: understand **what problem `Defaults & migrations` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Defaults & migrations` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Defaults & migrations** — fits inside the wider theme of Feature flags & config. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Defaults & migrations
+#include <iostream>
+int main() {
+  std::cout << "practice: Defaults & migrations\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Defaults & migrations` before you write code that uses it.
+- **Common mistake:** Using `Defaults & migrations` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Secrets handling
 
-Focus for this concept: understand **what problem `Secrets handling` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Secrets handling` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Secrets handling** — fits inside the wider theme of Feature flags & config. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Secrets handling
+#include <iostream>
+int main() {
+  std::cout << "practice: Secrets handling\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Secrets handling` before you write code that uses it.
+- **Common mistake:** Using `Secrets handling` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Testing with fixtures
 
-Focus for this concept: understand **what problem `Testing with fixtures` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Testing with fixtures` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A config loader
 
-Focus for this concept: understand **what problem `A config loader` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A config loader` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **A config loader** — fits inside the wider theme of Feature flags & config. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: A config loader
+#include <iostream>
+int main() {
+  std::cout << "practice: A config loader\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `A config loader` before you write code that uses it.
+- **Common mistake:** Using `A config loader` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 149
 
 - Explain `Feature flags & config` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

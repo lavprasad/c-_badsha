@@ -1,6 +1,12 @@
 # Day 199 -- Team C++ practices
 
-Today's goal: build a working mental model of **Team C++ practices** and practice it with small, compile-ready examples.
+Today's goal: understand **Team C++ practices** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,231 @@ Today's goal: build a working mental model of **Team C++ practices** and practic
 
 ## 1. Code ownership
 
-Focus for this concept: understand **what problem `Code ownership` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Code ownership` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Code ownership** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Code ownership
+#include <iostream>
+int main() {
+  std::cout << "practice: Code ownership\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Code ownership` before you write code that uses it.
+- **Common mistake:** Using `Code ownership` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Review SLAs
 
-Focus for this concept: understand **what problem `Review SLAs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Review SLAs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Review SLAs** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Review SLAs
+#include <iostream>
+int main() {
+  std::cout << "practice: Review SLAs\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Review SLAs` before you write code that uses it.
+- **Common mistake:** Using `Review SLAs` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Style automation
 
-Focus for this concept: understand **what problem `Style automation` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Style automation` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Style automation** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Style automation
+#include <iostream>
+int main() {
+  std::cout << "practice: Style automation\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Style automation` before you write code that uses it.
+- **Common mistake:** Using `Style automation` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Trunk based idea
 
-Focus for this concept: understand **what problem `Trunk based idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Trunk based idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Trunk based idea** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Trunk based idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Trunk based idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Trunk based idea` before you write code that uses it.
+- **Common mistake:** Using `Trunk based idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Feature flags idea
 
-Focus for this concept: understand **what problem `Feature flags idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Feature flags idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Feature flags idea** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Feature flags idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Feature flags idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Feature flags idea` before you write code that uses it.
+- **Common mistake:** Using `Feature flags idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Incident response
 
-Focus for this concept: understand **what problem `Incident response` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Incident response` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Incident response** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Incident response
+#include <iostream>
+int main() {
+  std::cout << "practice: Incident response\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Incident response` before you write code that uses it.
+- **Common mistake:** Using `Incident response` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. On-call lite
 
-Focus for this concept: understand **what problem `On-call lite` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `On-call lite` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **On-call lite** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: On-call lite
+#include <iostream>
+int main() {
+  std::cout << "practice: On-call lite\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `On-call lite` before you write code that uses it.
+- **Common mistake:** Using `On-call lite` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Knowledge sharing
 
-Focus for this concept: understand **what problem `Knowledge sharing` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Knowledge sharing` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Knowledge sharing** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Knowledge sharing
+#include <iostream>
+int main() {
+  std::cout << "practice: Knowledge sharing\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Knowledge sharing` before you write code that uses it.
+- **Common mistake:** Using `Knowledge sharing` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Tech radar
 
-Focus for this concept: understand **what problem `Tech radar` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Tech radar` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Tech radar** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Tech radar
+#include <iostream>
+int main() {
+  std::cout << "practice: Tech radar\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Tech radar` before you write code that uses it.
+- **Common mistake:** Using `Tech radar` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Team charter
 
-Focus for this concept: understand **what problem `Team charter` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Team charter` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Team charter** — fits inside the wider theme of Team C++ practices. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Team charter
+#include <iostream>
+int main() {
+  std::cout << "practice: Team charter\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Team charter` before you write code that uses it.
+- **Common mistake:** Using `Team charter` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 199
 
 - Explain `Team C++ practices` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

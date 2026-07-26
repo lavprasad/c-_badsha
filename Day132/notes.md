@@ -1,6 +1,12 @@
 # Day 132 -- Type traits library tour
 
-Today's goal: build a working mental model of **Type traits library tour** and practice it with small, compile-ready examples.
+Today's goal: understand **Type traits library tour** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,227 @@ Today's goal: build a working mental model of **Type traits library tour** and p
 
 ## 1. Primary type categories
 
-Focus for this concept: understand **what problem `Primary type categories` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Primary type categories` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Primary type categories** — fits inside the wider theme of Type traits library tour. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Primary type categories
+#include <iostream>
+int main() {
+  std::cout << "practice: Primary type categories\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Primary type categories` before you write code that uses it.
+- **Common mistake:** Using `Primary type categories` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Composite categories
 
-Focus for this concept: understand **what problem `Composite categories` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Composite categories` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Composite categories** — fits inside the wider theme of Type traits library tour. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Composite categories
+#include <iostream>
+int main() {
+  std::cout << "practice: Composite categories\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Composite categories` before you write code that uses it.
+- **Common mistake:** Using `Composite categories` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Type properties
 
-Focus for this concept: understand **what problem `Type properties` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Type properties` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Type properties** — fits inside the wider theme of Type traits library tour. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Type properties
+#include <iostream>
+int main() {
+  std::cout << "practice: Type properties\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Type properties` before you write code that uses it.
+- **Common mistake:** Using `Type properties` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Type relations
 
-Focus for this concept: understand **what problem `Type relations` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Type relations` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Type relations** — fits inside the wider theme of Type traits library tour. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Type relations
+#include <iostream>
+int main() {
+  std::cout << "practice: Type relations\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Type relations` before you write code that uses it.
+- **Common mistake:** Using `Type relations` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Transformations
 
-Focus for this concept: understand **what problem `Transformations` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Transformations` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+STL algorithms are verbs over iterator ranges. Prefer them over hand-rolled loops when the intent matches (`find`, `sort`, `transform`). The erase-remove idiom deletes elements by value/predicate from a sequence container.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+v.erase(std::remove(v.begin(), v.end(), 0), v.end());
+std::sort(v.begin(), v.end());
+```
+
+- **Remember:** `remove` only slides elements — you still need `erase`.
+- **Common mistake:** Calling `std::remove` and forgetting the container `erase`.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. decay / remove_cvref
 
-Focus for this concept: understand **what problem `decay / remove_cvref` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `decay / remove_cvref` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **decay / remove_cvref** — fits inside the wider theme of Type traits library tour. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: decay / remove_cvref
+#include <iostream>
+int main() {
+  std::cout << "practice: decay / remove_cvref\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `decay / remove_cvref` before you write code that uses it.
+- **Common mistake:** Using `decay / remove_cvref` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. is_invocable
 
-Focus for this concept: understand **what problem `is_invocable` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `is_invocable` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **is_invocable** — fits inside the wider theme of Type traits library tour. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: is_invocable
+#include <iostream>
+int main() {
+  std::cout << "practice: is_invocable\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `is_invocable` before you write code that uses it.
+- **Common mistake:** Using `is_invocable` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. invocation_result
 
-Focus for this concept: understand **what problem `invocation_result` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `invocation_result` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **invocation_result** — fits inside the wider theme of Type traits library tour. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: invocation_result
+#include <iostream>
+int main() {
+  std::cout << "practice: invocation_result\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `invocation_result` before you write code that uses it.
+- **Common mistake:** Using `invocation_result` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Using in APIs
 
-Focus for this concept: understand **what problem `Using in APIs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Using in APIs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Using in APIs** — fits inside the wider theme of Type traits library tour. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Using in APIs
+#include <iostream>
+int main() {
+  std::cout << "practice: Using in APIs\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Using in APIs` before you write code that uses it.
+- **Common mistake:** Using `Using in APIs` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Static checks suite
 
-Focus for this concept: understand **what problem `Static checks suite` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Static checks suite` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Static checks suite** — fits inside the wider theme of Type traits library tour. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Static checks suite
+#include <iostream>
+int main() {
+  std::cout << "practice: Static checks suite\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Static checks suite` before you write code that uses it.
+- **Common mistake:** Using `Static checks suite` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 132
 
 - Explain `Type traits library tour` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

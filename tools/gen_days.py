@@ -2,10 +2,12 @@
 """Generate Day12-Day211 lesson packs for c++_badsha."""
 from __future__ import annotations
 
-import os
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from teach import teach  # noqa: E402
 
 # (day, theme, [10 concept titles])
 # Days 12-211 inclusive = 200 days
@@ -2466,7 +2468,13 @@ def notes_md(day: int, theme: str, concepts: list[str]) -> str:
     lines = [
         f"# Day {day:02d} -- {theme}",
         "",
-        f"Today's goal: build a working mental model of **{theme}** and practice it with small, compile-ready examples.",
+        f"Today's goal: understand **{theme}** in plain English, see a tiny code sample for each idea, then practice in `examples/`.",
+        "",
+        "How to study this day:",
+        "1. Read each concept's **Plain English** section.",
+        "2. Skim the code sample -- predict what it does.",
+        "3. Run the matching file under `examples/`.",
+        "4. Only then try `questions.md`.",
         "",
         "| # | Concept |",
         "|--:|---------|",
@@ -2477,20 +2485,24 @@ def notes_md(day: int, theme: str, concepts: list[str]) -> str:
     lines.append("---")
     lines.append("")
     for i, c in enumerate(concepts, 1):
+        t = teach(c, theme)
         lines += [
             f"## {i}. {c}",
             "",
-            f"Focus for this concept: understand **what problem `{c}` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.",
+            "### Plain English",
             "",
-            "Key points:",
-            f"- Define the idea in one sentence: what is `{c}` for?",
-            "- Name the types / functions / keywords involved.",
-            "- State one invariant you must preserve (ownership, lifetime, complexity, or const).",
-            "- State one common bug and how to spot it.",
-            "- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).",
+            t["plain"],
             "",
-            "Practice prompt:",
-            f"- Open `examples/{i:02d}_*.cpp`, predict the output, then change one line and re-predict.",
+            "### Tiny code",
+            "",
+            "```cpp",
+            t["code"],
+            "```",
+            "",
+            f"- **Remember:** {t['remember']}",
+            f"- **Common mistake:** {t['mistake']}",
+            "",
+            f"Practice: open `examples/{i:02d}_*.cpp`, predict the output, change one line, re-predict.",
             "",
         ]
     lines += [
@@ -2499,11 +2511,11 @@ def notes_md(day: int, theme: str, concepts: list[str]) -> str:
         f"## What you should be able to do after Day {day:02d}",
         "",
         f"- Explain `{theme}` to a peer without looking at notes.",
-        "- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).",
+        "- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).",
         "- Answer the 5 questions in `questions.md` before peeking at `answers.md`.",
         "- Write one tiny extra program that combines at least 3 of today's concepts.",
         "",
-        "Now move to `examples/` and run each program. Then attempt `questions.md`.",
+        "Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.",
         "",
     ]
     return "\n".join(lines)

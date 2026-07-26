@@ -1,6 +1,12 @@
 # Day 172 -- Interview warmups A
 
-Today's goal: build a working mental model of **Interview warmups A** and practice it with small, compile-ready examples.
+Today's goal: understand **Interview warmups A** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,227 @@ Today's goal: build a working mental model of **Interview warmups A** and practi
 
 ## 1. Clarify requirements
 
-Focus for this concept: understand **what problem `Clarify requirements` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Clarify requirements` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Clarify requirements** — fits inside the wider theme of Interview warmups A. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Clarify requirements
+#include <iostream>
+int main() {
+  std::cout << "practice: Clarify requirements\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Clarify requirements` before you write code that uses it.
+- **Common mistake:** Using `Clarify requirements` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Examples first
 
-Focus for this concept: understand **what problem `Examples first` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Examples first` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Examples first** — fits inside the wider theme of Interview warmups A. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Examples first
+#include <iostream>
+int main() {
+  std::cout << "practice: Examples first\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Examples first` before you write code that uses it.
+- **Common mistake:** Using `Examples first` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Complexity targets
 
-Focus for this concept: understand **what problem `Complexity targets` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Complexity targets` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Big-O describes how cost grows with input size. Prefer a clearer O(n log n) algorithm over a clever O(n²) one once n gets large. Measure when constants matter.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Sorting n items: typically O(n log n)
+std::sort(v.begin(), v.end());
+```
+
+- **Remember:** Asymptotics first; micro-optimisations later with a profiler.
+- **Common mistake:** Optimising a cold path while leaving an O(n²) hot loop alone.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Edge cases list
 
-Focus for this concept: understand **what problem `Edge cases list` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Edge cases list` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Edge cases list** — fits inside the wider theme of Interview warmups A. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Edge cases list
+#include <iostream>
+int main() {
+  std::cout << "practice: Edge cases list\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Edge cases list` before you write code that uses it.
+- **Common mistake:** Using `Edge cases list` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Brute then improve
 
-Focus for this concept: understand **what problem `Brute then improve` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Brute then improve` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Brute then improve** — fits inside the wider theme of Interview warmups A. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Brute then improve
+#include <iostream>
+int main() {
+  std::cout << "practice: Brute then improve\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Brute then improve` before you write code that uses it.
+- **Common mistake:** Using `Brute then improve` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Communicate invariants
 
-Focus for this concept: understand **what problem `Communicate invariants` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Communicate invariants` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`optional<T>` is either a T or empty — better than magic sentinel values. `variant` holds one of several types. Prefer them over raw unions or `void*` for clarity.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <optional>
+std::optional<int> parse(bool ok) {
+  if (!ok) return std::nullopt;
+  return 42;
+}
+int x = parse(true).value_or(-1);
+```
+
+- **Remember:** Check `optional` (or use `value_or`) before calling `value()`.
+- **Common mistake:** Calling `opt.value()` on an empty optional → exception.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Test as you go
 
-Focus for this concept: understand **what problem `Test as you go` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Test as you go` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Test as you go** — fits inside the wider theme of Interview warmups A. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Test as you go
+#include <iostream>
+int main() {
+  std::cout << "practice: Test as you go\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Test as you go` before you write code that uses it.
+- **Common mistake:** Using `Test as you go` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Clean code under pressure
 
-Focus for this concept: understand **what problem `Clean code under pressure` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Clean code under pressure` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Clean code under pressure** — fits inside the wider theme of Interview warmups A. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Clean code under pressure
+#include <iostream>
+int main() {
+  std::cout << "practice: Clean code under pressure\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Clean code under pressure` before you write code that uses it.
+- **Common mistake:** Using `Clean code under pressure` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Time boxing
 
-Focus for this concept: understand **what problem `Time boxing` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Time boxing` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Time boxing** — fits inside the wider theme of Interview warmups A. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Time boxing
+#include <iostream>
+int main() {
+  std::cout << "practice: Time boxing\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Time boxing` before you write code that uses it.
+- **Common mistake:** Using `Time boxing` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Warmup problems
 
-Focus for this concept: understand **what problem `Warmup problems` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Warmup problems` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Warmup problems** — fits inside the wider theme of Interview warmups A. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Warmup problems
+#include <iostream>
+int main() {
+  std::cout << "practice: Warmup problems\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Warmup problems` before you write code that uses it.
+- **Common mistake:** Using `Warmup problems` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 172
 
 - Explain `Interview warmups A` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

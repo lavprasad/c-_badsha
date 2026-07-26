@@ -1,6 +1,12 @@
 # Day 75 -- Code review checklist for C++
 
-Today's goal: build a working mental model of **Code review checklist for C++** and practice it with small, compile-ready examples.
+Today's goal: understand **Code review checklist for C++** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,226 @@ Today's goal: build a working mental model of **Code review checklist for C++** 
 
 ## 1. Ownership clarity
 
-Focus for this concept: understand **what problem `Ownership clarity` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Ownership clarity` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Ownership clarity** — fits inside the wider theme of Code review checklist for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Ownership clarity
+#include <iostream>
+int main() {
+  std::cout << "practice: Ownership clarity\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Ownership clarity` before you write code that uses it.
+- **Common mistake:** Using `Ownership clarity` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Lifetime lifetimes
 
-Focus for this concept: understand **what problem `Lifetime lifetimes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Lifetime lifetimes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Lifetime lifetimes** — fits inside the wider theme of Code review checklist for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Lifetime lifetimes
+#include <iostream>
+int main() {
+  std::cout << "practice: Lifetime lifetimes\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Lifetime lifetimes` before you write code that uses it.
+- **Common mistake:** Using `Lifetime lifetimes` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. const correctness
 
-Focus for this concept: understand **what problem `const correctness` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `const correctness` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`const` is a promise: 'I will not change this through this name.' It catches bugs at compile time and documents intent. Put `const` on observers and on parameters you only read.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+void print(const std::string& s);  // no copy, no mutate
+struct Counter {
+  int n = 0;
+  int get() const { return n; }  // may call on const objects
+};
+```
+
+- **Remember:** Prefer `const T&` for read-only parameters bigger than a machine word.
+- **Common mistake:** Casting away `const` to mutate something that callers assumed was fixed.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Exception safety
 
-Focus for this concept: understand **what problem `Exception safety` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Exception safety` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Exceptions separate the happy path from failure. Throw when a function cannot do its job; catch at a layer that can recover or report. RAII still cleans up during unwind.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+try {
+  throw std::runtime_error("boom");
+} catch (const std::exception& e) {
+  std::cerr << e.what() << '\n';
+}
+```
+
+- **Remember:** Catch by `const` reference, not by value.
+- **Common mistake:** Throwing raw pointers or catching by value (slicing).
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. API misuse risks
 
-Focus for this concept: understand **what problem `API misuse risks` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `API misuse risks` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **API misuse risks** — fits inside the wider theme of Code review checklist for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: API misuse risks
+#include <iostream>
+int main() {
+  std::cout << "practice: API misuse risks\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `API misuse risks` before you write code that uses it.
+- **Common mistake:** Using `API misuse risks` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Performance hotspots
 
-Focus for this concept: understand **what problem `Performance hotspots` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Performance hotspots` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Performance hotspots** — fits inside the wider theme of Code review checklist for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Performance hotspots
+#include <iostream>
+int main() {
+  std::cout << "practice: Performance hotspots\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Performance hotspots` before you write code that uses it.
+- **Common mistake:** Using `Performance hotspots` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Readability
 
-Focus for this concept: understand **what problem `Readability` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Readability` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Readability** — fits inside the wider theme of Code review checklist for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Readability
+#include <iostream>
+int main() {
+  std::cout << "practice: Readability\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Readability` before you write code that uses it.
+- **Common mistake:** Using `Readability` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Tests present
 
-Focus for this concept: understand **what problem `Tests present` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Tests present` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Tests present** — fits inside the wider theme of Code review checklist for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Tests present
+#include <iostream>
+int main() {
+  std::cout << "practice: Tests present\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Tests present` before you write code that uses it.
+- **Common mistake:** Using `Tests present` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. UB red flags
 
-Focus for this concept: understand **what problem `UB red flags` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `UB red flags` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Assertions document invariants. `assert` is for runtime checks in debug builds; `static_assert` fails at compile time. Sanitizers catch many memory and UB bugs early.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <cassert>
+assert(index < size);
+static_assert(sizeof(int) >= 4, "need 32-bit int");
+```
+
+- **Remember:** Asserts are not for user-facing error handling.
+- **Common mistake:** Putting required validation only in `assert` — it disappears in release (`NDEBUG`).
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Applying to a sample
 
-Focus for this concept: understand **what problem `Applying to a sample` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Applying to a sample` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Applying to a sample** — fits inside the wider theme of Code review checklist for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Applying to a sample
+#include <iostream>
+int main() {
+  std::cout << "practice: Applying to a sample\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Applying to a sample` before you write code that uses it.
+- **Common mistake:** Using `Applying to a sample` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 75
 
 - Explain `Code review checklist for C++` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

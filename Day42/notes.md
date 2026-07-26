@@ -1,6 +1,12 @@
 # Day 42 -- Stack, queue, priority_queue
 
-Today's goal: build a working mental model of **Stack, queue, priority_queue** and practice it with small, compile-ready examples.
+Today's goal: understand **Stack, queue, priority_queue** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,225 @@ Today's goal: build a working mental model of **Stack, queue, priority_queue** a
 
 ## 1. std::stack
 
-Focus for this concept: understand **what problem `std::stack` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `std::stack` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **std::stack** — fits inside the wider theme of Stack, queue, priority_queue. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: std::stack
+#include <iostream>
+int main() {
+  std::cout << "practice: std::stack\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `std::stack` before you write code that uses it.
+- **Common mistake:** Using `std::stack` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. std::queue
 
-Focus for this concept: understand **what problem `std::queue` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `std::queue` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **std::queue** — fits inside the wider theme of Stack, queue, priority_queue. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: std::queue
+#include <iostream>
+int main() {
+  std::cout << "practice: std::queue\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `std::queue` before you write code that uses it.
+- **Common mistake:** Using `std::queue` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. std::priority_queue
 
-Focus for this concept: understand **what problem `std::priority_queue` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `std::priority_queue` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **std::priority_queue** — fits inside the wider theme of Stack, queue, priority_queue. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: std::priority_queue
+#include <iostream>
+int main() {
+  std::cout << "practice: std::priority_queue\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `std::priority_queue` before you write code that uses it.
+- **Common mistake:** Using `std::priority_queue` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Underlying containers
 
-Focus for this concept: understand **what problem `Underlying containers` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Underlying containers` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Underlying containers** — fits inside the wider theme of Stack, queue, priority_queue. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Underlying containers
+#include <iostream>
+int main() {
+  std::cout << "practice: Underlying containers\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Underlying containers` before you write code that uses it.
+- **Common mistake:** Using `Underlying containers` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Custom priorities
 
-Focus for this concept: understand **what problem `Custom priorities` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Custom priorities` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Custom priorities** — fits inside the wider theme of Stack, queue, priority_queue. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Custom priorities
+#include <iostream>
+int main() {
+  std::cout << "practice: Custom priorities\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Custom priorities` before you write code that uses it.
+- **Common mistake:** Using `Custom priorities` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Dijkstra-style use
 
-Focus for this concept: understand **what problem `Dijkstra-style use` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Dijkstra-style use` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Graphs are nodes plus edges. BFS finds shortest paths in unweighted graphs; Dijkstra handles non-negative weights. Union-Find tracks connected components efficiently.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// BFS sketch
+std::queue<int> q;
+q.push(start);
+seen[start] = true;
+```
+
+- **Remember:** Pick adjacency lists unless the graph is tiny and dense.
+- **Common mistake:** Forgetting to mark nodes visited → infinite loops.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. BFS with queue
 
-Focus for this concept: understand **what problem `BFS with queue` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `BFS with queue` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Graphs are nodes plus edges. BFS finds shortest paths in unweighted graphs; Dijkstra handles non-negative weights. Union-Find tracks connected components efficiently.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// BFS sketch
+std::queue<int> q;
+q.push(start);
+seen[start] = true;
+```
+
+- **Remember:** Pick adjacency lists unless the graph is tiny and dense.
+- **Common mistake:** Forgetting to mark nodes visited → infinite loops.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. DFS with stack
 
-Focus for this concept: understand **what problem `DFS with stack` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `DFS with stack` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Graphs are nodes plus edges. BFS finds shortest paths in unweighted graphs; Dijkstra handles non-negative weights. Union-Find tracks connected components efficiently.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// BFS sketch
+std::queue<int> q;
+q.push(start);
+seen[start] = true;
+```
+
+- **Remember:** Pick adjacency lists unless the graph is tiny and dense.
+- **Common mistake:** Forgetting to mark nodes visited → infinite loops.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Limitations of adapters
 
-Focus for this concept: understand **what problem `Limitations of adapters` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Limitations of adapters` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Limitations of adapters** — fits inside the wider theme of Stack, queue, priority_queue. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Limitations of adapters
+#include <iostream>
+int main() {
+  std::cout << "practice: Limitations of adapters\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Limitations of adapters` before you write code that uses it.
+- **Common mistake:** Using `Limitations of adapters` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A task scheduler sketch
 
-Focus for this concept: understand **what problem `A task scheduler sketch` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A task scheduler sketch` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **A task scheduler sketch** — fits inside the wider theme of Stack, queue, priority_queue. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: A task scheduler sketch
+#include <iostream>
+int main() {
+  std::cout << "practice: A task scheduler sketch\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `A task scheduler sketch` before you write code that uses it.
+- **Common mistake:** Using `A task scheduler sketch` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 42
 
 - Explain `Stack, queue, priority_queue` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

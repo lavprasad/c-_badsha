@@ -1,6 +1,12 @@
 # Day 45 -- shared_ptr & weak_ptr
 
-Today's goal: build a working mental model of **shared_ptr & weak_ptr** and practice it with small, compile-ready examples.
+Today's goal: understand **shared_ptr & weak_ptr** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,201 @@ Today's goal: build a working mental model of **shared_ptr & weak_ptr** and prac
 
 ## 1. shared_ptr control block
 
-Focus for this concept: understand **what problem `shared_ptr control block` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `shared_ptr control block` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. make_shared
 
-Focus for this concept: understand **what problem `make_shared` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `make_shared` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. weak_ptr lock
 
-Focus for this concept: understand **what problem `weak_ptr lock` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `weak_ptr lock` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Breaking cycles
 
-Focus for this concept: understand **what problem `Breaking cycles` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Breaking cycles` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. aliasing constructor idea
 
-Focus for this concept: understand **what problem `aliasing constructor idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `aliasing constructor idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. enable_shared_from_this
 
-Focus for this concept: understand **what problem `enable_shared_from_this` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `enable_shared_from_this` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Performance cost
 
-Focus for this concept: understand **what problem `Performance cost` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Performance cost` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Thread safety notes
 
-Focus for this concept: understand **what problem `Thread safety notes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Thread safety notes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. When unique_ptr is enough
 
-Focus for this concept: understand **what problem `When unique_ptr is enough` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `When unique_ptr is enough` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Cache with weak_ptr
 
-Focus for this concept: understand **what problem `Cache with weak_ptr` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Cache with weak_ptr` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`unique_ptr` is exclusive ownership — cheap and clear. `shared_ptr` shares ownership with a reference count. Prefer `unique_ptr` unless you truly need shared lifetime.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+auto p = std::make_unique<int>(5);
+std::shared_ptr<int> s = std::make_shared<int>(7);
+std::weak_ptr<int> w = s;  // does not keep object alive
+```
+
+- **Remember:** Break `shared_ptr` cycles with `weak_ptr`.
+- **Common mistake:** Creating two `shared_ptr`s from the same raw pointer → double free.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 45
 
 - Explain `shared_ptr & weak_ptr` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

@@ -1,6 +1,12 @@
 # Day 33 -- string_view (C++17)
 
-Today's goal: build a working mental model of **string_view (C++17)** and practice it with small, compile-ready examples.
+Today's goal: understand **string_view (C++17)** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,201 @@ Today's goal: build a working mental model of **string_view (C++17)** and practi
 
 ## 1. What string_view is
 
-Focus for this concept: understand **what problem `What string_view is` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `What string_view is` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Non-owning views
 
-Focus for this concept: understand **what problem `Non-owning views` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Non-owning views` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Lifetime with string and C-strings
 
-Focus for this concept: understand **what problem `Lifetime with string and C-strings` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Lifetime with string and C-strings` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Lifetime traps (dangling)
 
-Focus for this concept: understand **what problem `Lifetime traps (dangling)` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Lifetime traps (dangling)` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. remove_prefix / remove_suffix
 
-Focus for this concept: understand **what problem `remove_prefix / remove_suffix` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `remove_prefix / remove_suffix` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. find on string_view
 
-Focus for this concept: understand **what problem `find on string_view` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `find on string_view` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. API design with string_view
 
-Focus for this concept: understand **what problem `API design with string_view` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `API design with string_view` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Null-termination caution
 
-Focus for this concept: understand **what problem `Null-termination caution` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Null-termination caution` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Lifetimeing to string when needed
 
-Focus for this concept: understand **what problem `Lifetimeing to string when needed` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Lifetimeing to string when needed` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A tokenizer sketch
 
-Focus for this concept: understand **what problem `A tokenizer sketch` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A tokenizer sketch` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::string` owns character data and grows as needed. Prefer it over raw `char*` for safety. `string_view` is a non-owning window — great for read-only parameters, dangerous if it outlives the string.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::string s = "hello";
+std::string_view v = s;  // ok while s lives
+auto t = s.substr(0, 2); // "he"
+```
+
+- **Remember:** Never return a `string_view` that points at a local temporary.
+- **Common mistake:** Mixing `getline` and `>>` without clearing the leftover newline.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 33
 
 - Explain `string_view (C++17)` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

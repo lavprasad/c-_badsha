@@ -1,6 +1,12 @@
 # Day 108 -- String encoding & Unicode lite
 
-Today's goal: build a working mental model of **String encoding & Unicode lite** and practice it with small, compile-ready examples.
+Today's goal: understand **String encoding & Unicode lite** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,226 @@ Today's goal: build a working mental model of **String encoding & Unicode lite**
 
 ## 1. Bytes vs characters
 
-Focus for this concept: understand **what problem `Bytes vs characters` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Bytes vs characters` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Bytes vs characters** — fits inside the wider theme of String encoding & Unicode lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Bytes vs characters
+#include <iostream>
+int main() {
+  std::cout << "practice: Bytes vs characters\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Bytes vs characters` before you write code that uses it.
+- **Common mistake:** Using `Bytes vs characters` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. UTF-8
 
-Focus for this concept: understand **what problem `UTF-8` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `UTF-8` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **UTF-8** — fits inside the wider theme of String encoding & Unicode lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: UTF-8
+#include <iostream>
+int main() {
+  std::cout << "practice: UTF-8\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `UTF-8` before you write code that uses it.
+- **Common mistake:** Using `UTF-8` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Code points vs graphemes
 
-Focus for this concept: understand **what problem `Code points vs graphemes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Code points vs graphemes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Graphs are nodes plus edges. BFS finds shortest paths in unweighted graphs; Dijkstra handles non-negative weights. Union-Find tracks connected components efficiently.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// BFS sketch
+std::queue<int> q;
+q.push(start);
+seen[start] = true;
+```
+
+- **Remember:** Pick adjacency lists unless the graph is tiny and dense.
+- **Common mistake:** Forgetting to mark nodes visited → infinite loops.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. char8_t idea (C++20)
 
-Focus for this concept: understand **what problem `char8_t idea (C++20)` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `char8_t idea (C++20)` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **char8_t idea (C++20)** — fits inside the wider theme of String encoding & Unicode lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: char8_t idea (C++20)
+#include <iostream>
+int main() {
+  std::cout << "practice: char8_t idea (C++20)\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `char8_t idea (C++20)` before you write code that uses it.
+- **Common mistake:** Using `char8_t idea (C++20)` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Validation
 
-Focus for this concept: understand **what problem `Validation` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Validation` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Validation** — fits inside the wider theme of String encoding & Unicode lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Validation
+#include <iostream>
+int main() {
+  std::cout << "practice: Validation\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Validation` before you write code that uses it.
+- **Common mistake:** Using `Validation` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Normalization idea
 
-Focus for this concept: understand **what problem `Normalization idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Normalization idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Normalization idea** — fits inside the wider theme of String encoding & Unicode lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Normalization idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Normalization idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Normalization idea` before you write code that uses it.
+- **Common mistake:** Using `Normalization idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Locale dangers
 
-Focus for this concept: understand **what problem `Locale dangers` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Locale dangers` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Locale dangers** — fits inside the wider theme of String encoding & Unicode lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Locale dangers
+#include <iostream>
+int main() {
+  std::cout << "practice: Locale dangers\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Locale dangers` before you write code that uses it.
+- **Common mistake:** Using `Locale dangers` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Wchar portability
 
-Focus for this concept: understand **what problem `Wchar portability` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Wchar portability` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Wchar portability** — fits inside the wider theme of String encoding & Unicode lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Wchar portability
+#include <iostream>
+int main() {
+  std::cout << "practice: Wchar portability\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Wchar portability` before you write code that uses it.
+- **Common mistake:** Using `Wchar portability` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. API recommendations
 
-Focus for this concept: understand **what problem `API recommendations` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `API recommendations` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Count UTF-8 code points naive
 
-Focus for this concept: understand **what problem `Count UTF-8 code points naive` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Count UTF-8 code points naive` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Count UTF-8 code points naive** — fits inside the wider theme of String encoding & Unicode lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Count UTF-8 code points naive
+#include <iostream>
+int main() {
+  std::cout << "practice: Count UTF-8 code points naive\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Count UTF-8 code points naive` before you write code that uses it.
+- **Common mistake:** Using `Count UTF-8 code points naive` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 108
 
 - Explain `String encoding & Unicode lite` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

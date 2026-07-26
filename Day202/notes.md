@@ -1,6 +1,12 @@
 # Day 202 -- Windows vs Linux notes for C++
 
-Today's goal: build a working mental model of **Windows vs Linux notes for C++** and practice it with small, compile-ready examples.
+Today's goal: understand **Windows vs Linux notes for C++** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,227 @@ Today's goal: build a working mental model of **Windows vs Linux notes for C++**
 
 ## 1. Toolchains
 
-Focus for this concept: understand **what problem `Toolchains` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Toolchains` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Toolchains** — fits inside the wider theme of Windows vs Linux notes for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Toolchains
+#include <iostream>
+int main() {
+  std::cout << "practice: Toolchains\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Toolchains` before you write code that uses it.
+- **Common mistake:** Using `Toolchains` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Path APIs
 
-Focus for this concept: understand **what problem `Path APIs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Path APIs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::filesystem` gives portable paths and directory walks. Prefer `path` objects over hand-rolled string concatenation for joining folders.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <filesystem>
+namespace fs = std::filesystem;
+for (auto& e : fs::directory_iterator(".")) {
+  std::cout << e.path() << '\n';
+}
+```
+
+- **Remember:** Check `exists` / handle errors — disks fail.
+- **Common mistake:** Assuming `/` path separators on every OS without using `path`.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Process APIs
 
-Focus for this concept: understand **what problem `Process APIs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Process APIs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Process APIs** — fits inside the wider theme of Windows vs Linux notes for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Process APIs
+#include <iostream>
+int main() {
+  std::cout << "practice: Process APIs\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Process APIs` before you write code that uses it.
+- **Common mistake:** Using `Process APIs` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. DLL vs .so
 
-Focus for this concept: understand **what problem `DLL vs .so` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `DLL vs .so` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **DLL vs .so** — fits inside the wider theme of Windows vs Linux notes for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: DLL vs .so
+#include <iostream>
+int main() {
+  std::cout << "practice: DLL vs .so\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `DLL vs .so` before you write code that uses it.
+- **Common mistake:** Using `DLL vs .so` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. CRT differences
 
-Focus for this concept: understand **what problem `CRT differences` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `CRT differences` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **CRT differences** — fits inside the wider theme of Windows vs Linux notes for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: CRT differences
+#include <iostream>
+int main() {
+  std::cout << "practice: CRT differences\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `CRT differences` before you write code that uses it.
+- **Common mistake:** Using `CRT differences` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Line buffering
 
-Focus for this concept: understand **what problem `Line buffering` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Line buffering` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Line buffering** — fits inside the wider theme of Windows vs Linux notes for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Line buffering
+#include <iostream>
+int main() {
+  std::cout << "practice: Line buffering\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Line buffering` before you write code that uses it.
+- **Common mistake:** Using `Line buffering` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Case sensitivity
 
-Focus for this concept: understand **what problem `Case sensitivity` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Case sensitivity` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Case sensitivity** — fits inside the wider theme of Windows vs Linux notes for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Case sensitivity
+#include <iostream>
+int main() {
+  std::cout << "practice: Case sensitivity\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Case sensitivity` before you write code that uses it.
+- **Common mistake:** Using `Case sensitivity` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Permissions
 
-Focus for this concept: understand **what problem `Permissions` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Permissions` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Permissions** — fits inside the wider theme of Windows vs Linux notes for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Permissions
+#include <iostream>
+int main() {
+  std::cout << "practice: Permissions\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Permissions` before you write code that uses it.
+- **Common mistake:** Using `Permissions` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Debuggers
 
-Focus for this concept: understand **what problem `Debuggers` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Debuggers` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Assertions document invariants. `assert` is for runtime checks in debug builds; `static_assert` fails at compile time. Sanitizers catch many memory and UB bugs early.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <cassert>
+assert(index < size);
+static_assert(sizeof(int) >= 4, "need 32-bit int");
+```
+
+- **Remember:** Asserts are not for user-facing error handling.
+- **Common mistake:** Putting required validation only in `assert` — it disappears in release (`NDEBUG`).
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Portability checklist
 
-Focus for this concept: understand **what problem `Portability checklist` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Portability checklist` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Portability checklist** — fits inside the wider theme of Windows vs Linux notes for C++. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Portability checklist
+#include <iostream>
+int main() {
+  std::cout << "practice: Portability checklist\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Portability checklist` before you write code that uses it.
+- **Common mistake:** Using `Portability checklist` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 202
 
 - Explain `Windows vs Linux notes for C++` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

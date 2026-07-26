@@ -1,6 +1,12 @@
 # Day 134 -- Reflection wishlist & current tricks
 
-Today's goal: build a working mental model of **Reflection wishlist & current tricks** and practice it with small, compile-ready examples.
+Today's goal: understand **Reflection wishlist & current tricks** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,226 @@ Today's goal: build a working mental model of **Reflection wishlist & current tr
 
 ## 1. What reflection means
 
-Focus for this concept: understand **what problem `What reflection means` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `What reflection means` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **What reflection means** — fits inside the wider theme of Reflection wishlist & current tricks. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: What reflection means
+#include <iostream>
+int main() {
+  std::cout << "practice: What reflection means\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `What reflection means` before you write code that uses it.
+- **Common mistake:** Using `What reflection means` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Macro registration
 
-Focus for this concept: understand **what problem `Macro registration` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Macro registration` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Macro registration** — fits inside the wider theme of Reflection wishlist & current tricks. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Macro registration
+#include <iostream>
+int main() {
+  std::cout << "practice: Macro registration\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Macro registration` before you write code that uses it.
+- **Common mistake:** Using `Macro registration` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Structured bindings limits
 
-Focus for this concept: understand **what problem `Structured bindings limits` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Structured bindings limits` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Sockets are OS endpoints for network bytes. TCP gives a reliable stream; you still must frame messages yourself. Always check return codes and handle partial reads/writes.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Conceptual — details are OS-specific
+// sock = socket(...);
+// connect(sock, ...);
+// send(sock, buf, n, 0);
+```
+
+- **Remember:** Network data is bytes; convert integers with endian helpers.
+- **Common mistake:** Assuming one `recv` returns one complete application message.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. visit on variants
 
-Focus for this concept: understand **what problem `visit on variants` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `visit on variants` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`optional<T>` is either a T or empty — better than magic sentinel values. `variant` holds one of several types. Prefer them over raw unions or `void*` for clarity.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <optional>
+std::optional<int> parse(bool ok) {
+  if (!ok) return std::nullopt;
+  return 42;
+}
+int x = parse(true).value_or(-1);
+```
+
+- **Remember:** Check `optional` (or use `value_or`) before calling `value()`.
+- **Common mistake:** Calling `opt.value()` on an empty optional → exception.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Magic_get style idea
 
-Focus for this concept: understand **what problem `Magic_get style idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Magic_get style idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Magic_get style idea** — fits inside the wider theme of Reflection wishlist & current tricks. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Magic_get style idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Magic_get style idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Magic_get style idea` before you write code that uses it.
+- **Common mistake:** Using `Magic_get style idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Future of C++ reflection
 
-Focus for this concept: understand **what problem `Future of C++ reflection` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Future of C++ reflection` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Codegen alternatives
 
-Focus for this concept: understand **what problem `Codegen alternatives` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Codegen alternatives` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Codegen alternatives** — fits inside the wider theme of Reflection wishlist & current tricks. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Codegen alternatives
+#include <iostream>
+int main() {
+  std::cout << "practice: Codegen alternatives\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Codegen alternatives` before you write code that uses it.
+- **Common mistake:** Using `Codegen alternatives` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. JSON mapping pain
 
-Focus for this concept: understand **what problem `JSON mapping pain` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `JSON mapping pain` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Practical advice
 
-Focus for this concept: understand **what problem `Practical advice` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Practical advice` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Practical advice** — fits inside the wider theme of Reflection wishlist & current tricks. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Practical advice
+#include <iostream>
+int main() {
+  std::cout << "practice: Practical advice\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Practical advice` before you write code that uses it.
+- **Common mistake:** Using `Practical advice` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Manual visitor
 
-Focus for this concept: understand **what problem `Manual visitor` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Manual visitor` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`optional<T>` is either a T or empty — better than magic sentinel values. `variant` holds one of several types. Prefer them over raw unions or `void*` for clarity.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <optional>
+std::optional<int> parse(bool ok) {
+  if (!ok) return std::nullopt;
+  return 42;
+}
+int x = parse(true).value_or(-1);
+```
+
+- **Remember:** Check `optional` (or use `value_or`) before calling `value()`.
+- **Common mistake:** Calling `opt.value()` on an empty optional → exception.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 134
 
 - Explain `Reflection wishlist & current tricks` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

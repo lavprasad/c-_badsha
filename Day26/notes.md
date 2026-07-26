@@ -1,6 +1,12 @@
 # Day 26 -- Random numbers
 
-Today's goal: build a working mental model of **Random numbers** and practice it with small, compile-ready examples.
+Today's goal: understand **Random numbers** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,204 @@ Today's goal: build a working mental model of **Random numbers** and practice it
 
 ## 1. <random> overview
 
-Focus for this concept: understand **what problem `<random> overview` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `<random> overview` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Do not use `rand()` for serious work. Use `<random>`: an engine (`mt19937`) plus a distribution. Seed carefully if you need reproducibility.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mt19937 rng{std::random_device{}()};
+std::uniform_int_distribution<int> dist(1, 6);
+int roll = dist(rng);
+```
+
+- **Remember:** Create the engine once; reuse it — do not re-seed every call.
+- **Common mistake:** Seeding with `time(nullptr)` every roll → correlated results.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. std::mt19937
 
-Focus for this concept: understand **what problem `std::mt19937` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `std::mt19937` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Do not use `rand()` for serious work. Use `<random>`: an engine (`mt19937`) plus a distribution. Seed carefully if you need reproducibility.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mt19937 rng{std::random_device{}()};
+std::uniform_int_distribution<int> dist(1, 6);
+int roll = dist(rng);
+```
+
+- **Remember:** Create the engine once; reuse it — do not re-seed every call.
+- **Common mistake:** Seeding with `time(nullptr)` every roll → correlated results.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Distributions
 
-Focus for this concept: understand **what problem `Distributions` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Distributions` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Do not use `rand()` for serious work. Use `<random>`: an engine (`mt19937`) plus a distribution. Seed carefully if you need reproducibility.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mt19937 rng{std::random_device{}()};
+std::uniform_int_distribution<int> dist(1, 6);
+int roll = dist(rng);
+```
+
+- **Remember:** Create the engine once; reuse it — do not re-seed every call.
+- **Common mistake:** Seeding with `time(nullptr)` every roll → correlated results.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Seeding properly
 
-Focus for this concept: understand **what problem `Seeding properly` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Seeding properly` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Do not use `rand()` for serious work. Use `<random>`: an engine (`mt19937`) plus a distribution. Seed carefully if you need reproducibility.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mt19937 rng{std::random_device{}()};
+std::uniform_int_distribution<int> dist(1, 6);
+int roll = dist(rng);
+```
+
+- **Remember:** Create the engine once; reuse it — do not re-seed every call.
+- **Common mistake:** Seeding with `time(nullptr)` every roll → correlated results.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. rand() pitfalls
 
-Focus for this concept: understand **what problem `rand() pitfalls` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `rand() pitfalls` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Do not use `rand()` for serious work. Use `<random>`: an engine (`mt19937`) plus a distribution. Seed carefully if you need reproducibility.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mt19937 rng{std::random_device{}()};
+std::uniform_int_distribution<int> dist(1, 6);
+int roll = dist(rng);
+```
+
+- **Remember:** Create the engine once; reuse it — do not re-seed every call.
+- **Common mistake:** Seeding with `time(nullptr)` every roll → correlated results.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Uniform int/real
 
-Focus for this concept: understand **what problem `Uniform int/real` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Uniform int/real` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Do not use `rand()` for serious work. Use `<random>`: an engine (`mt19937`) plus a distribution. Seed carefully if you need reproducibility.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mt19937 rng{std::random_device{}()};
+std::uniform_int_distribution<int> dist(1, 6);
+int roll = dist(rng);
+```
+
+- **Remember:** Create the engine once; reuse it — do not re-seed every call.
+- **Common mistake:** Seeding with `time(nullptr)` every roll → correlated results.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Shuffling with std::shuffle
 
-Focus for this concept: understand **what problem `Shuffling with std::shuffle` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Shuffling with std::shuffle` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Do not use `rand()` for serious work. Use `<random>`: an engine (`mt19937`) plus a distribution. Seed carefully if you need reproducibility.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mt19937 rng{std::random_device{}()};
+std::uniform_int_distribution<int> dist(1, 6);
+int roll = dist(rng);
+```
+
+- **Remember:** Create the engine once; reuse it — do not re-seed every call.
+- **Common mistake:** Seeding with `time(nullptr)` every roll → correlated results.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Reproducible seeds
 
-Focus for this concept: understand **what problem `Reproducible seeds` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Reproducible seeds` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Do not use `rand()` for serious work. Use `<random>`: an engine (`mt19937`) plus a distribution. Seed carefully if you need reproducibility.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mt19937 rng{std::random_device{}()};
+std::uniform_int_distribution<int> dist(1, 6);
+int roll = dist(rng);
+```
+
+- **Remember:** Create the engine once; reuse it — do not re-seed every call.
+- **Common mistake:** Seeding with `time(nullptr)` every roll → correlated results.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Thread notes
 
-Focus for this concept: understand **what problem `Thread notes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Thread notes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A dice simulator
 
-Focus for this concept: understand **what problem `A dice simulator` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A dice simulator` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Do not use `rand()` for serious work. Use `<random>`: an engine (`mt19937`) plus a distribution. Seed carefully if you need reproducibility.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mt19937 rng{std::random_device{}()};
+std::uniform_int_distribution<int> dist(1, 6);
+int roll = dist(rng);
+```
+
+- **Remember:** Create the engine once; reuse it — do not re-seed every call.
+- **Common mistake:** Seeding with `time(nullptr)` every roll → correlated results.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 26
 
 - Explain `Random numbers` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

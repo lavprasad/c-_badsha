@@ -1,6 +1,12 @@
 # Day 93 -- I/O multiplexing idea
 
-Today's goal: build a working mental model of **I/O multiplexing idea** and practice it with small, compile-ready examples.
+Today's goal: understand **I/O multiplexing idea** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,223 @@ Today's goal: build a working mental model of **I/O multiplexing idea** and prac
 
 ## 1. Why select/poll
 
-Focus for this concept: understand **what problem `Why select/poll` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Why select/poll` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Sockets are OS endpoints for network bytes. TCP gives a reliable stream; you still must frame messages yourself. Always check return codes and handle partial reads/writes.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Conceptual — details are OS-specific
+// sock = socket(...);
+// connect(sock, ...);
+// send(sock, buf, n, 0);
+```
+
+- **Remember:** Network data is bytes; convert integers with endian helpers.
+- **Common mistake:** Assuming one `recv` returns one complete application message.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Non-blocking sockets
 
-Focus for this concept: understand **what problem `Non-blocking sockets` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Non-blocking sockets` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Sockets are OS endpoints for network bytes. TCP gives a reliable stream; you still must frame messages yourself. Always check return codes and handle partial reads/writes.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Conceptual — details are OS-specific
+// sock = socket(...);
+// connect(sock, ...);
+// send(sock, buf, n, 0);
+```
+
+- **Remember:** Network data is bytes; convert integers with endian helpers.
+- **Common mistake:** Assuming one `recv` returns one complete application message.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Event loops
 
-Focus for this concept: understand **what problem `Event loops` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Event loops` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Event loops** — fits inside the wider theme of I/O multiplexing idea. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Event loops
+#include <iostream>
+int main() {
+  std::cout << "practice: Event loops\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Event loops` before you write code that uses it.
+- **Common mistake:** Using `Event loops` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Edge vs level trigger idea
 
-Focus for this concept: understand **what problem `Edge vs level trigger idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Edge vs level trigger idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Edge vs level trigger idea** — fits inside the wider theme of I/O multiplexing idea. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Edge vs level trigger idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Edge vs level trigger idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Edge vs level trigger idea` before you write code that uses it.
+- **Common mistake:** Using `Edge vs level trigger idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. epoll mental model
 
-Focus for this concept: understand **what problem `epoll mental model` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `epoll mental model` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Sockets are OS endpoints for network bytes. TCP gives a reliable stream; you still must frame messages yourself. Always check return codes and handle partial reads/writes.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Conceptual — details are OS-specific
+// sock = socket(...);
+// connect(sock, ...);
+// send(sock, buf, n, 0);
+```
+
+- **Remember:** Network data is bytes; convert integers with endian helpers.
+- **Common mistake:** Assuming one `recv` returns one complete application message.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Timeouts
 
-Focus for this concept: understand **what problem `Timeouts` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Timeouts` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Timeouts** — fits inside the wider theme of I/O multiplexing idea. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Timeouts
+#include <iostream>
+int main() {
+  std::cout << "practice: Timeouts\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Timeouts` before you write code that uses it.
+- **Common mistake:** Using `Timeouts` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Scalability
 
-Focus for this concept: understand **what problem `Scalability` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Scalability` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Scalability** — fits inside the wider theme of I/O multiplexing idea. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Scalability
+#include <iostream>
+int main() {
+  std::cout << "practice: Scalability\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Scalability` before you write code that uses it.
+- **Common mistake:** Using `Scalability` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Callback style
 
-Focus for this concept: understand **what problem `Callback style` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Callback style` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Callback style** — fits inside the wider theme of I/O multiplexing idea. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Callback style
+#include <iostream>
+int main() {
+  std::cout << "practice: Callback style\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Callback style` before you write code that uses it.
+- **Common mistake:** Using `Callback style` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Backpressure
 
-Focus for this concept: understand **what problem `Backpressure` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Backpressure` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Backpressure** — fits inside the wider theme of I/O multiplexing idea. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Backpressure
+#include <iostream>
+int main() {
+  std::cout << "practice: Backpressure\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Backpressure` before you write code that uses it.
+- **Common mistake:** Using `Backpressure` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Tiny poll loop sketch
 
-Focus for this concept: understand **what problem `Tiny poll loop sketch` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Tiny poll loop sketch` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Sockets are OS endpoints for network bytes. TCP gives a reliable stream; you still must frame messages yourself. Always check return codes and handle partial reads/writes.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Conceptual — details are OS-specific
+// sock = socket(...);
+// connect(sock, ...);
+// send(sock, buf, n, 0);
+```
+
+- **Remember:** Network data is bytes; convert integers with endian helpers.
+- **Common mistake:** Assuming one `recv` returns one complete application message.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 93
 
 - Explain `I/O multiplexing idea` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

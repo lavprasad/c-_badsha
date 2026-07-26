@@ -1,6 +1,12 @@
 # Day 73 -- Logging & diagnostics design
 
-Today's goal: build a working mental model of **Logging & diagnostics design** and practice it with small, compile-ready examples.
+Today's goal: understand **Logging & diagnostics design** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,231 @@ Today's goal: build a working mental model of **Logging & diagnostics design** a
 
 ## 1. Log levels
 
-Focus for this concept: understand **what problem `Log levels` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Log levels` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Log levels** — fits inside the wider theme of Logging & diagnostics design. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Log levels
+#include <iostream>
+int main() {
+  std::cout << "practice: Log levels\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Log levels` before you write code that uses it.
+- **Common mistake:** Using `Log levels` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Macros vs functions
 
-Focus for this concept: understand **what problem `Macros vs functions` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Macros vs functions` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Macros vs functions** — fits inside the wider theme of Logging & diagnostics design. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Macros vs functions
+#include <iostream>
+int main() {
+  std::cout << "practice: Macros vs functions\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Macros vs functions` before you write code that uses it.
+- **Common mistake:** Using `Macros vs functions` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Streaming loggers
 
-Focus for this concept: understand **what problem `Streaming loggers` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Streaming loggers` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Streaming loggers** — fits inside the wider theme of Logging & diagnostics design. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Streaming loggers
+#include <iostream>
+int main() {
+  std::cout << "practice: Streaming loggers\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Streaming loggers` before you write code that uses it.
+- **Common mistake:** Using `Streaming loggers` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Context fields
 
-Focus for this concept: understand **what problem `Context fields` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Context fields` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Context fields** — fits inside the wider theme of Logging & diagnostics design. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Context fields
+#include <iostream>
+int main() {
+  std::cout << "practice: Context fields\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Context fields` before you write code that uses it.
+- **Common mistake:** Using `Context fields` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Performance of logging
 
-Focus for this concept: understand **what problem `Performance of logging` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Performance of logging` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Performance of logging** — fits inside the wider theme of Logging & diagnostics design. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Performance of logging
+#include <iostream>
+int main() {
+  std::cout << "practice: Performance of logging\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Performance of logging` before you write code that uses it.
+- **Common mistake:** Using `Performance of logging` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Sinks
 
-Focus for this concept: understand **what problem `Sinks` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Sinks` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Sinks** — fits inside the wider theme of Logging & diagnostics design. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Sinks
+#include <iostream>
+int main() {
+  std::cout << "practice: Sinks\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Sinks` before you write code that uses it.
+- **Common mistake:** Using `Sinks` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Compile-time stripping
 
-Focus for this concept: understand **what problem `Compile-time stripping` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Compile-time stripping` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Compile-time stripping** — fits inside the wider theme of Logging & diagnostics design. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Compile-time stripping
+#include <iostream>
+int main() {
+  std::cout << "practice: Compile-time stripping\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Compile-time stripping` before you write code that uses it.
+- **Common mistake:** Using `Compile-time stripping` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Structured logs idea
 
-Focus for this concept: understand **what problem `Structured logs idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Structured logs idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+A class bundles data with the operations that keep it valid. Constructors establish invariants; destructors release resources. `struct` defaults to public, `class` to private — that is the main difference.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+class Counter {
+  int n_ = 0;
+public:
+  void inc() { ++n_; }
+  int get() const { return n_; }
+};
+```
+
+- **Remember:** Keep data private if invariants matter; expose operations.
+- **Common mistake:** Public data fields that let callers break class invariants.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Fatal vs error
 
-Focus for this concept: understand **what problem `Fatal vs error` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Fatal vs error` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Fatal vs error** — fits inside the wider theme of Logging & diagnostics design. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Fatal vs error
+#include <iostream>
+int main() {
+  std::cout << "practice: Fatal vs error\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Fatal vs error` before you write code that uses it.
+- **Common mistake:** Using `Fatal vs error` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A mini logger
 
-Focus for this concept: understand **what problem `A mini logger` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A mini logger` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **A mini logger** — fits inside the wider theme of Logging & diagnostics design. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: A mini logger
+#include <iostream>
+int main() {
+  std::cout << "practice: A mini logger\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `A mini logger` before you write code that uses it.
+- **Common mistake:** Using `A mini logger` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 73
 
 - Explain `Logging & diagnostics design` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

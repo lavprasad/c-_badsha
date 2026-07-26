@@ -1,6 +1,12 @@
 # Day 127 -- std::expected mindset
 
-Today's goal: build a working mental model of **std::expected mindset** and practice it with small, compile-ready examples.
+Today's goal: understand **std::expected mindset** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,204 @@ Today's goal: build a working mental model of **std::expected mindset** and prac
 
 ## 1. Success or error
 
-Focus for this concept: understand **what problem `Success or error` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Success or error` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. vs optional
 
-Focus for this concept: understand **what problem `vs optional` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `vs optional` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`optional<T>` is either a T or empty — better than magic sentinel values. `variant` holds one of several types. Prefer them over raw unions or `void*` for clarity.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <optional>
+std::optional<int> parse(bool ok) {
+  if (!ok) return std::nullopt;
+  return 42;
+}
+int x = parse(true).value_or(-1);
+```
+
+- **Remember:** Check `optional` (or use `value_or`) before calling `value()`.
+- **Common mistake:** Calling `opt.value()` on an empty optional → exception.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. vs exceptions
 
-Focus for this concept: understand **what problem `vs exceptions` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `vs exceptions` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. monadic and_then idea
 
-Focus for this concept: understand **what problem `monadic and_then idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `monadic and_then idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. error types
 
-Focus for this concept: understand **what problem `error types` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `error types` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. API boundaries
 
-Focus for this concept: understand **what problem `API boundaries` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `API boundaries` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Performance
 
-Focus for this concept: understand **what problem `Performance` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Performance` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Compatibility shims
 
-Focus for this concept: understand **what problem `Compatibility shims` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Compatibility shims` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Testing expected
 
-Focus for this concept: understand **what problem `Testing expected` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Testing expected` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Parse returning expected
 
-Focus for this concept: understand **what problem `Parse returning expected` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Parse returning expected` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`map` keeps keys sorted (tree); `unordered_map` hashes for average O(1) lookup. Pick sorted when you need order; pick hash when you need speed and have a good hash.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::unordered_map<std::string, int> freq;
+++freq["hi"];
+for (auto& [k, v] : freq) std::cout << k << ':' << v << '\n';
+```
+
+- **Remember:** `operator[]` default-inserts a value if the key is missing.
+- **Common mistake:** Using `[]` when you only meant to look up — prefer `find` / `at` if missing should be an error.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 127
 
 - Explain `std::expected mindset` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

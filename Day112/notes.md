@@ -1,6 +1,12 @@
 # Day 112 -- C++20 overview
 
-Today's goal: build a working mental model of **C++20 overview** and practice it with small, compile-ready examples.
+Today's goal: understand **C++20 overview** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,214 @@ Today's goal: build a working mental model of **C++20 overview** and practice it
 
 ## 1. Big themes of C++20
 
-Focus for this concept: understand **what problem `Big themes of C++20` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Big themes of C++20` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Big themes of C++20** — fits inside the wider theme of C++20 overview. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Big themes of C++20
+#include <iostream>
+int main() {
+  std::cout << "practice: Big themes of C++20\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Big themes of C++20` before you write code that uses it.
+- **Common mistake:** Using `Big themes of C++20` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Modules idea
 
-Focus for this concept: understand **what problem `Modules idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Modules idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Modules idea** — fits inside the wider theme of C++20 overview. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Modules idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Modules idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Modules idea` before you write code that uses it.
+- **Common mistake:** Using `Modules idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Concepts idea
 
-Focus for this concept: understand **what problem `Concepts idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Concepts idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Templates generate code per type. They move errors to compile time and remove runtime virtual dispatch. Keep them readable; constrain parameters when you can.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+template <typename T>
+T clamp_pos(T x) {
+  return x < T{0} ? T{0} : x;
+}
+```
+
+- **Remember:** Templates usually live in headers so every TU can instantiate them.
+- **Common mistake:** Putting a template definition only in a `.cpp` and wondering why the linker fails.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Ranges idea
 
-Focus for this concept: understand **what problem `Ranges idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Ranges idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Modern C++ (20+) adds safer views (`span`, ranges), clearer comparisons (`<=>`), and better formatting. Use them when your toolchain supports them; otherwise stick to C++17 patterns taught earlier.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// C++20 sketch
+// std::span<int> s = arr;
+// auto evens = v | std::views::filter([](int x){ return x % 2 == 0; });
+```
+
+- **Remember:** Check your compiler's C++20/23 support before relying on these.
+- **Common mistake:** Assuming every machine in class/CI has full C++20 library support.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Coroutines idea
 
-Focus for this concept: understand **what problem `Coroutines idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Coroutines idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Modern C++ (20+) adds safer views (`span`, ranges), clearer comparisons (`<=>`), and better formatting. Use them when your toolchain supports them; otherwise stick to C++17 patterns taught earlier.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// C++20 sketch
+// std::span<int> s = arr;
+// auto evens = v | std::views::filter([](int x){ return x % 2 == 0; });
+```
+
+- **Remember:** Check your compiler's C++20/23 support before relying on these.
+- **Common mistake:** Assuming every machine in class/CI has full C++20 library support.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. calendar/timezone idea
 
-Focus for this concept: understand **what problem `calendar/timezone idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `calendar/timezone idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. span
 
-Focus for this concept: understand **what problem `span` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `span` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Modern C++ (20+) adds safer views (`span`, ranges), clearer comparisons (`<=>`), and better formatting. Use them when your toolchain supports them; otherwise stick to C++17 patterns taught earlier.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// C++20 sketch
+// std::span<int> s = arr;
+// auto evens = v | std::views::filter([](int x){ return x % 2 == 0; });
+```
+
+- **Remember:** Check your compiler's C++20/23 support before relying on these.
+- **Common mistake:** Assuming every machine in class/CI has full C++20 library support.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. format idea
 
-Focus for this concept: understand **what problem `format idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `format idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Modern C++ (20+) adds safer views (`span`, ranges), clearer comparisons (`<=>`), and better formatting. Use them when your toolchain supports them; otherwise stick to C++17 patterns taught earlier.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// C++20 sketch
+// std::span<int> s = arr;
+// auto evens = v | std::views::filter([](int x){ return x % 2 == 0; });
+```
+
+- **Remember:** Check your compiler's C++20/23 support before relying on these.
+- **Common mistake:** Assuming every machine in class/CI has full C++20 library support.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Three-way comparison
 
-Focus for this concept: understand **what problem `Three-way comparison` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Three-way comparison` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Three-way comparison** — fits inside the wider theme of C++20 overview. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Three-way comparison
+#include <iostream>
+int main() {
+  std::cout << "practice: Three-way comparison\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Three-way comparison` before you write code that uses it.
+- **Common mistake:** Using `Three-way comparison` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Migration tips
 
-Focus for this concept: understand **what problem `Migration tips` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Migration tips` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Migration tips** — fits inside the wider theme of C++20 overview. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Migration tips
+#include <iostream>
+int main() {
+  std::cout << "practice: Migration tips\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Migration tips` before you write code that uses it.
+- **Common mistake:** Using `Migration tips` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 112
 
 - Explain `C++20 overview` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

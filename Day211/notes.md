@@ -1,6 +1,12 @@
 # Day 211 -- Capstone: portfolio polish
 
-Today's goal: build a working mental model of **Capstone: portfolio polish** and practice it with small, compile-ready examples.
+Today's goal: understand **Capstone: portfolio polish** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,232 @@ Today's goal: build a working mental model of **Capstone: portfolio polish** and
 
 ## 1. README quality
 
-Focus for this concept: understand **what problem `README quality` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `README quality` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **README quality** — fits inside the wider theme of Capstone: portfolio polish. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: README quality
+#include <iostream>
+int main() {
+  std::cout << "practice: README quality\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `README quality` before you write code that uses it.
+- **Common mistake:** Using `README quality` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Build instructions
 
-Focus for this concept: understand **what problem `Build instructions` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Build instructions` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+A class bundles data with the operations that keep it valid. Constructors establish invariants; destructors release resources. `struct` defaults to public, `class` to private — that is the main difference.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+class Counter {
+  int n_ = 0;
+public:
+  void inc() { ++n_; }
+  int get() const { return n_; }
+};
+```
+
+- **Remember:** Keep data private if invariants matter; expose operations.
+- **Common mistake:** Public data fields that let callers break class invariants.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Tests visible
 
-Focus for this concept: understand **what problem `Tests visible` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Tests visible` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Tests visible** — fits inside the wider theme of Capstone: portfolio polish. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Tests visible
+#include <iostream>
+int main() {
+  std::cout << "practice: Tests visible\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Tests visible` before you write code that uses it.
+- **Common mistake:** Using `Tests visible` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Design docs
 
-Focus for this concept: understand **what problem `Design docs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Design docs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Design docs** — fits inside the wider theme of Capstone: portfolio polish. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Design docs
+#include <iostream>
+int main() {
+  std::cout << "practice: Design docs\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Design docs` before you write code that uses it.
+- **Common mistake:** Using `Design docs` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Benchmarks
 
-Focus for this concept: understand **what problem `Benchmarks` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Benchmarks` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. License
 
-Focus for this concept: understand **what problem `License` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `License` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **License** — fits inside the wider theme of Capstone: portfolio polish. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: License
+#include <iostream>
+int main() {
+  std::cout << "practice: License\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `License` before you write code that uses it.
+- **Common mistake:** Using `License` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Screenshots/logs
 
-Focus for this concept: understand **what problem `Screenshots/logs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Screenshots/logs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Screenshots/logs** — fits inside the wider theme of Capstone: portfolio polish. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Screenshots/logs
+#include <iostream>
+int main() {
+  std::cout << "practice: Screenshots/logs\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Screenshots/logs` before you write code that uses it.
+- **Common mistake:** Using `Screenshots/logs` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Scope honesty
 
-Focus for this concept: understand **what problem `Scope honesty` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Scope honesty` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Scope honesty** — fits inside the wider theme of Capstone: portfolio polish. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Scope honesty
+#include <iostream>
+int main() {
+  std::cout << "practice: Scope honesty\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Scope honesty` before you write code that uses it.
+- **Common mistake:** Using `Scope honesty` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Next steps
 
-Focus for this concept: understand **what problem `Next steps` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Next steps` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Next steps** — fits inside the wider theme of Capstone: portfolio polish. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Next steps
+#include <iostream>
+int main() {
+  std::cout << "practice: Next steps\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Next steps` before you write code that uses it.
+- **Common mistake:** Using `Next steps` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Publish checklist
 
-Focus for this concept: understand **what problem `Publish checklist` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Publish checklist` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Publish checklist** — fits inside the wider theme of Capstone: portfolio polish. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Publish checklist
+#include <iostream>
+int main() {
+  std::cout << "practice: Publish checklist\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Publish checklist` before you write code that uses it.
+- **Common mistake:** Using `Publish checklist` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 211
 
 - Explain `Capstone: portfolio polish` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

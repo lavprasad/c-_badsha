@@ -1,6 +1,12 @@
 # Day 61 -- Value semantics vs reference semantics
 
-Today's goal: build a working mental model of **Value semantics vs reference semantics** and practice it with small, compile-ready examples.
+Today's goal: understand **Value semantics vs reference semantics** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,230 @@ Today's goal: build a working mental model of **Value semantics vs reference sem
 
 ## 1. Copyable values
 
-Focus for this concept: understand **what problem `Copyable values` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Copyable values` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Copyable values** — fits inside the wider theme of Value semantics vs reference semantics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Copyable values
+#include <iostream>
+int main() {
+  std::cout << "practice: Copyable values\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Copyable values` before you write code that uses it.
+- **Common mistake:** Using `Copyable values` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Shared identity
 
-Focus for this concept: understand **what problem `Shared identity` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Shared identity` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Shared identity** — fits inside the wider theme of Value semantics vs reference semantics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Shared identity
+#include <iostream>
+int main() {
+  std::cout << "practice: Shared identity\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Shared identity` before you write code that uses it.
+- **Common mistake:** Using `Shared identity` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Immutable values
 
-Focus for this concept: understand **what problem `Immutable values` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Immutable values` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`const` is a promise: 'I will not change this through this name.' It catches bugs at compile time and documents intent. Put `const` on observers and on parameters you only read.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+void print(const std::string& s);  // no copy, no mutate
+struct Counter {
+  int n = 0;
+  int get() const { return n; }  // may call on const objects
+};
+```
+
+- **Remember:** Prefer `const T&` for read-only parameters bigger than a machine word.
+- **Common mistake:** Casting away `const` to mutate something that callers assumed was fixed.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Handle-body
 
-Focus for this concept: understand **what problem `Handle-body` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Handle-body` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Handle-body** — fits inside the wider theme of Value semantics vs reference semantics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Handle-body
+#include <iostream>
+int main() {
+  std::cout << "practice: Handle-body\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Handle-body` before you write code that uses it.
+- **Common mistake:** Using `Handle-body` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Copy-on-write idea
 
-Focus for this concept: understand **what problem `Copy-on-write idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Copy-on-write idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Copy-on-write idea** — fits inside the wider theme of Value semantics vs reference semantics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Copy-on-write idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Copy-on-write idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Copy-on-write idea` before you write code that uses it.
+- **Common mistake:** Using `Copy-on-write idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Polymorphic values
 
-Focus for this concept: understand **what problem `Polymorphic values` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Polymorphic values` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Polymorphic values** — fits inside the wider theme of Value semantics vs reference semantics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Polymorphic values
+#include <iostream>
+int main() {
+  std::cout << "practice: Polymorphic values\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Polymorphic values` before you write code that uses it.
+- **Common mistake:** Using `Polymorphic values` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Choosing ownership
 
-Focus for this concept: understand **what problem `Choosing ownership` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Choosing ownership` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Choosing ownership** — fits inside the wider theme of Value semantics vs reference semantics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Choosing ownership
+#include <iostream>
+int main() {
+  std::cout << "practice: Choosing ownership\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Choosing ownership` before you write code that uses it.
+- **Common mistake:** Using `Choosing ownership` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. API parameter modes
 
-Focus for this concept: understand **what problem `API parameter modes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `API parameter modes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **API parameter modes** — fits inside the wider theme of Value semantics vs reference semantics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: API parameter modes
+#include <iostream>
+int main() {
+  std::cout << "practice: API parameter modes\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `API parameter modes` before you write code that uses it.
+- **Common mistake:** Using `API parameter modes` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Return value design
 
-Focus for this concept: understand **what problem `Return value design` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Return value design` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Return value design** — fits inside the wider theme of Value semantics vs reference semantics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Return value design
+#include <iostream>
+int main() {
+  std::cout << "practice: Return value design\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Return value design` before you write code that uses it.
+- **Common mistake:** Using `Return value design` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Case study: string
 
-Focus for this concept: understand **what problem `Case study: string` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Case study: string` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Case study: string** — fits inside the wider theme of Value semantics vs reference semantics. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Case study: string
+#include <iostream>
+int main() {
+  std::cout << "practice: Case study: string\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Case study: string` before you write code that uses it.
+- **Common mistake:** Using `Case study: string` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 61
 
 - Explain `Value semantics vs reference semantics` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

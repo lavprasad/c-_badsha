@@ -1,6 +1,12 @@
 # Day 185 -- Project: Thread pool library
 
-Today's goal: build a working mental model of **Project: Thread pool library** and practice it with small, compile-ready examples.
+Today's goal: understand **Project: Thread pool library** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,230 @@ Today's goal: build a working mental model of **Project: Thread pool library** a
 
 ## 1. API design
 
-Focus for this concept: understand **what problem `API design` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `API design` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Queue
 
-Focus for this concept: understand **what problem `Queue` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Queue` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Workers
 
-Focus for this concept: understand **what problem `Workers` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Workers` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Futures
 
-Focus for this concept: understand **what problem `Futures` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Futures` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Shutdown
 
-Focus for this concept: understand **what problem `Shutdown` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Shutdown` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Exception prop
 
-Focus for this concept: understand **what problem `Exception prop` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Exception prop` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Exceptions separate the happy path from failure. Throw when a function cannot do its job; catch at a layer that can recover or report. RAII still cleans up during unwind.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+try {
+  throw std::runtime_error("boom");
+} catch (const std::exception& e) {
+  std::cerr << e.what() << '\n';
+}
+```
+
+- **Remember:** Catch by `const` reference, not by value.
+- **Common mistake:** Throwing raw pointers or catching by value (slicing).
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Benchmarks
 
-Focus for this concept: understand **what problem `Benchmarks` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Benchmarks` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Docs
 
-Focus for this concept: understand **what problem `Docs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Docs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Example apps
 
-Focus for this concept: understand **what problem `Example apps` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Example apps` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Ship thread_pool
 
-Focus for this concept: understand **what problem `Ship thread_pool` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Ship thread_pool` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Threads run code concurrently. Shared mutable data needs a mutex (or atomics). Prefer RAII locks (`lock_guard`) so unlock happens even on exceptions.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::mutex m;
+int counter = 0;
+{
+  std::lock_guard<std::mutex> g(m);
+  ++counter;
+}
+```
+
+- **Remember:** A data race on non-atomic shared data is undefined behaviour.
+- **Common mistake:** Locking two mutexes in opposite orders in different threads → deadlock.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 185
 
 - Explain `Project: Thread pool library` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

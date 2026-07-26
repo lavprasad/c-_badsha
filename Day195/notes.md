@@ -1,6 +1,12 @@
 # Day 195 -- Compiler explorer workflows
 
-Today's goal: build a working mental model of **Compiler explorer workflows** and practice it with small, compile-ready examples.
+Today's goal: understand **Compiler explorer workflows** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,231 @@ Today's goal: build a working mental model of **Compiler explorer workflows** an
 
 ## 1. Godbolt basics
 
-Focus for this concept: understand **what problem `Godbolt basics` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Godbolt basics` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Godbolt basics** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Godbolt basics
+#include <iostream>
+int main() {
+  std::cout << "practice: Godbolt basics\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Godbolt basics` before you write code that uses it.
+- **Common mistake:** Using `Godbolt basics` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Comparing compilers
 
-Focus for this concept: understand **what problem `Comparing compilers` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Comparing compilers` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Comparing compilers** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Comparing compilers
+#include <iostream>
+int main() {
+  std::cout << "practice: Comparing compilers\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Comparing compilers` before you write code that uses it.
+- **Common mistake:** Using `Comparing compilers` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Optimization levels
 
-Focus for this concept: understand **what problem `Optimization levels` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Optimization levels` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Optimization levels** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Optimization levels
+#include <iostream>
+int main() {
+  std::cout << "practice: Optimization levels\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Optimization levels` before you write code that uses it.
+- **Common mistake:** Using `Optimization levels` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Reading assembly
 
-Focus for this concept: understand **what problem `Reading assembly` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Reading assembly` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Reading assembly** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Reading assembly
+#include <iostream>
+int main() {
+  std::cout << "practice: Reading assembly\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Reading assembly` before you write code that uses it.
+- **Common mistake:** Using `Reading assembly` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Inlining evidence
 
-Focus for this concept: understand **what problem `Inlining evidence` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Inlining evidence` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Inlining evidence** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Inlining evidence
+#include <iostream>
+int main() {
+  std::cout << "practice: Inlining evidence\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Inlining evidence` before you write code that uses it.
+- **Common mistake:** Using `Inlining evidence` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. ABI differences
 
-Focus for this concept: understand **what problem `ABI differences` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `ABI differences` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **ABI differences** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: ABI differences
+#include <iostream>
+int main() {
+  std::cout << "practice: ABI differences\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `ABI differences` before you write code that uses it.
+- **Common mistake:** Using `ABI differences` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Library versions
 
-Focus for this concept: understand **what problem `Library versions` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Library versions` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Library versions** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Library versions
+#include <iostream>
+int main() {
+  std::cout << "practice: Library versions\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Library versions` before you write code that uses it.
+- **Common mistake:** Using `Library versions` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Sharing links
 
-Focus for this concept: understand **what problem `Sharing links` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Sharing links` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Sharing links** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Sharing links
+#include <iostream>
+int main() {
+  std::cout << "practice: Sharing links\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Sharing links` before you write code that uses it.
+- **Common mistake:** Using `Sharing links` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Teaching with CE
 
-Focus for this concept: understand **what problem `Teaching with CE` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Teaching with CE` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Teaching with CE** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Teaching with CE
+#include <iostream>
+int main() {
+  std::cout << "practice: Teaching with CE\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Teaching with CE` before you write code that uses it.
+- **Common mistake:** Using `Teaching with CE` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Lab exercises
 
-Focus for this concept: understand **what problem `Lab exercises` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Lab exercises` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Lab exercises** — fits inside the wider theme of Compiler explorer workflows. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Lab exercises
+#include <iostream>
+int main() {
+  std::cout << "practice: Lab exercises\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Lab exercises` before you write code that uses it.
+- **Common mistake:** Using `Lab exercises` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 195
 
 - Explain `Compiler explorer workflows` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

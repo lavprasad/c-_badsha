@@ -1,6 +1,12 @@
 # Day 54 -- Multiple inheritance
 
-Today's goal: build a working mental model of **Multiple inheritance** and practice it with small, compile-ready examples.
+Today's goal: understand **Multiple inheritance** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,224 @@ Today's goal: build a working mental model of **Multiple inheritance** and pract
 
 ## 1. Why MI exists
 
-Focus for this concept: understand **what problem `Why MI exists` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Why MI exists` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Inheritance models 'is-a' when the derived type can substitute for the base. Prefer composition ('has-a') when you only need to reuse implementation.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Engine { void start(); };
+struct Car {  // has-an Engine
+  Engine engine;
+  void start() { engine.start(); }
+};
+```
+
+- **Remember:** Deep inheritance trees get fragile — favour shallow designs.
+- **Common mistake:** Inheriting just to reuse code when a member object would do.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Ambiguity
 
-Focus for this concept: understand **what problem `Ambiguity` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Ambiguity` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Inheritance models 'is-a' when the derived type can substitute for the base. Prefer composition ('has-a') when you only need to reuse implementation.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Engine { void start(); };
+struct Car {  // has-an Engine
+  Engine engine;
+  void start() { engine.start(); }
+};
+```
+
+- **Remember:** Deep inheritance trees get fragile — favour shallow designs.
+- **Common mistake:** Inheriting just to reuse code when a member object would do.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Virtual base classes
 
-Focus for this concept: understand **what problem `Virtual base classes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Virtual base classes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Virtual functions let you call the derived implementation through a base pointer/reference. Abstract classes (pure virtuals) define interfaces. Always give polymorphic bases a virtual destructor.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Shape {
+  virtual ~Shape() = default;
+  virtual double area() const = 0;
+};
+struct Circle : Shape {
+  double r;
+  double area() const override { return 3.14 * r * r; }
+};
+```
+
+- **Remember:** Use `override` so signature mistakes fail at compile time.
+- **Common mistake:** Deleting a derived object via a non-virtual base destructor.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Diamond problem
 
-Focus for this concept: understand **what problem `Diamond problem` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Diamond problem` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Inheritance models 'is-a' when the derived type can substitute for the base. Prefer composition ('has-a') when you only need to reuse implementation.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Engine { void start(); };
+struct Car {  // has-an Engine
+  Engine engine;
+  void start() { engine.start(); }
+};
+```
+
+- **Remember:** Deep inheritance trees get fragile — favour shallow designs.
+- **Common mistake:** Inheriting just to reuse code when a member object would do.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Interface MI
 
-Focus for this concept: understand **what problem `Interface MI` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Interface MI` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Inheritance models 'is-a' when the derived type can substitute for the base. Prefer composition ('has-a') when you only need to reuse implementation.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Engine { void start(); };
+struct Car {  // has-an Engine
+  Engine engine;
+  void start() { engine.start(); }
+};
+```
+
+- **Remember:** Deep inheritance trees get fragile — favour shallow designs.
+- **Common mistake:** Inheriting just to reuse code when a member object would do.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Layout intuition
 
-Focus for this concept: understand **what problem `Layout intuition` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Layout intuition` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Inheritance models 'is-a' when the derived type can substitute for the base. Prefer composition ('has-a') when you only need to reuse implementation.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Engine { void start(); };
+struct Car {  // has-an Engine
+  Engine engine;
+  void start() { engine.start(); }
+};
+```
+
+- **Remember:** Deep inheritance trees get fragile — favour shallow designs.
+- **Common mistake:** Inheriting just to reuse code when a member object would do.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. When to avoid MI
 
-Focus for this concept: understand **what problem `When to avoid MI` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `When to avoid MI` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Inheritance models 'is-a' when the derived type can substitute for the base. Prefer composition ('has-a') when you only need to reuse implementation.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Engine { void start(); };
+struct Car {  // has-an Engine
+  Engine engine;
+  void start() { engine.start(); }
+};
+```
+
+- **Remember:** Deep inheritance trees get fragile — favour shallow designs.
+- **Common mistake:** Inheriting just to reuse code when a member object would do.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Mixin idea
 
-Focus for this concept: understand **what problem `Mixin idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Mixin idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Inheritance models 'is-a' when the derived type can substitute for the base. Prefer composition ('has-a') when you only need to reuse implementation.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Engine { void start(); };
+struct Car {  // has-an Engine
+  Engine engine;
+  void start() { engine.start(); }
+};
+```
+
+- **Remember:** Deep inheritance trees get fragile — favour shallow designs.
+- **Common mistake:** Inheriting just to reuse code when a member object would do.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Casting across bases
 
-Focus for this concept: understand **what problem `Casting across bases` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Casting across bases` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Inheritance models 'is-a' when the derived type can substitute for the base. Prefer composition ('has-a') when you only need to reuse implementation.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Engine { void start(); };
+struct Car {  // has-an Engine
+  Engine engine;
+  void start() { engine.start(); }
+};
+```
+
+- **Remember:** Deep inheritance trees get fragile — favour shallow designs.
+- **Common mistake:** Inheriting just to reuse code when a member object would do.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A device+logger mix
 
-Focus for this concept: understand **what problem `A device+logger mix` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A device+logger mix` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Inheritance models 'is-a' when the derived type can substitute for the base. Prefer composition ('has-a') when you only need to reuse implementation.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Engine { void start(); };
+struct Car {  // has-an Engine
+  Engine engine;
+  void start() { engine.start(); }
+};
+```
+
+- **Remember:** Deep inheritance trees get fragile — favour shallow designs.
+- **Common mistake:** Inheriting just to reuse code when a member object would do.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 54
 
 - Explain `Multiple inheritance` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

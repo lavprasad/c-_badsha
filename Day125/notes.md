@@ -1,6 +1,12 @@
 # Day 125 -- Numbers & math updates
 
-Today's goal: build a working mental model of **Numbers & math updates** and practice it with small, compile-ready examples.
+Today's goal: understand **Numbers & math updates** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,223 @@ Today's goal: build a working mental model of **Numbers & math updates** and pra
 
 ## 1. midpoint
 
-Focus for this concept: understand **what problem `midpoint` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `midpoint` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+DP solves overlapping subproblems once and stores answers. Greedy picks locally best choices when a proof allows it. Backtracking explores choices and undoes them.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<long long> dp(n + 1);
+dp[0] = 0;
+for (int i = 1; i <= n; ++i)
+  dp[i] = dp[i - 1] + i;  // toy example
+```
+
+- **Remember:** Define the state and transition in words before coding.
+- **Common mistake:** Memoising without a clear state key → wrong answers.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. lerp
 
-Focus for this concept: understand **what problem `lerp` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `lerp` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **lerp** — fits inside the wider theme of Numbers & math updates. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: lerp
+#include <iostream>
+int main() {
+  std::cout << "practice: lerp\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `lerp` before you write code that uses it.
+- **Common mistake:** Using `lerp` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. cmath additions awareness
 
-Focus for this concept: understand **what problem `cmath additions awareness` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `cmath additions awareness` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **cmath additions awareness** — fits inside the wider theme of Numbers & math updates. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: cmath additions awareness
+#include <iostream>
+int main() {
+  std::cout << "practice: cmath additions awareness\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `cmath additions awareness` before you write code that uses it.
+- **Common mistake:** Using `cmath additions awareness` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Numeric limits
 
-Focus for this concept: understand **what problem `Numeric limits` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Numeric limits` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Numeric limits** — fits inside the wider theme of Numbers & math updates. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Numeric limits
+#include <iostream>
+int main() {
+  std::cout << "practice: Numeric limits\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Numeric limits` before you write code that uses it.
+- **Common mistake:** Using `Numeric limits` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Safe comparisons idea
 
-Focus for this concept: understand **what problem `Safe comparisons idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Safe comparisons idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Safe comparisons idea** — fits inside the wider theme of Numbers & math updates. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Safe comparisons idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Safe comparisons idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Safe comparisons idea` before you write code that uses it.
+- **Common mistake:** Using `Safe comparisons idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Integer abs
 
-Focus for this concept: understand **what problem `Integer abs` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Integer abs` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Integer abs** — fits inside the wider theme of Numbers & math updates. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Integer abs
+#include <iostream>
+int main() {
+  std::cout << "practice: Integer abs\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Integer abs` before you write code that uses it.
+- **Common mistake:** Using `Integer abs` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Floating classify
 
-Focus for this concept: understand **what problem `Floating classify` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Floating classify` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Floating-point numbers approximate reals. Equality with `==` is often wrong; compare with a tolerance appropriate to your scale. Watch for NaN and accumulation error.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+bool nearly_equal(double a, double b, double eps = 1e-9) {
+  return std::fabs(a - b) <= eps;
+}
+```
+
+- **Remember:** Never loop with `double` counters expecting exact sums.
+- **Common mistake:** `if (f == 0.1)` style checks that fail due to representation.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Math error handling
 
-Focus for this concept: understand **what problem `Math error handling` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Math error handling` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Math error handling** — fits inside the wider theme of Numbers & math updates. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Math error handling
+#include <iostream>
+int main() {
+  std::cout << "practice: Math error handling\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Math error handling` before you write code that uses it.
+- **Common mistake:** Using `Math error handling` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Constants (numbers header idea)
 
-Focus for this concept: understand **what problem `Constants (numbers header idea)` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Constants (numbers header idea)` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Headers declare the interface; `.cpp` files define the bodies. Include guards stop a header from being pasted twice into one translation unit. The One Definition Rule says non-inline functions have exactly one definition in the whole program.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#pragma once
+struct Widget;           // forward decl — enough for pointers/refs
+void use(Widget*);
+```
+
+- **Remember:** Declarations in headers, definitions in `.cpp` (templates excepted).
+- **Common mistake:** Defining a non-inline function in a header included by two `.cpp` files → multiple definition linker error.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Interpolation demo
 
-Focus for this concept: understand **what problem `Interpolation demo` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Interpolation demo` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Interpolation demo** — fits inside the wider theme of Numbers & math updates. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Interpolation demo
+#include <iostream>
+int main() {
+  std::cout << "practice: Interpolation demo\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Interpolation demo` before you write code that uses it.
+- **Common mistake:** Using `Interpolation demo` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 125
 
 - Explain `Numbers & math updates` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

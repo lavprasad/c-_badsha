@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Badsha — C++ learning hub</title>
+  <meta name="description" content="Badsha private C++ course — learn, practice, quiz on GitHub Pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Root entry for GitHub Pages: https://lavprasad.github.io/c-_badsha/ -->
+  <link rel="stylesheet" href="hub/static/styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="brand" href="#" id="brandHome">
+      <span class="brand-mark">B</span>
+      <span class="brand-text">Badsha</span>
+    </a>
+    <form class="search" id="searchForm" role="search">
+      <input type="search" id="searchInput" placeholder="Search the course…" autocomplete="off" />
+      <button type="submit">Search</button>
+    </form>
+    <div class="top-meta">
+      <span id="gppStatus" class="pill">loading…</span>
+      <button type="button" class="ghost" id="btnContinue">Continue</button>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <p class="eyebrow">C++ learning range</p>
+    <h1>Badsha</h1>
+    <p class="lede">Your C++ course on GitHub Pages — learn, search, quiz, and run examples in the browser.</p>
+    <div class="hero-actions">
+      <button type="button" class="primary" id="btnStart">Open Day 01</button>
+      <button type="button" class="ghost" id="btnHelpHero">Quick help</button>
+    </div>
+  </section>
+
+  <main class="layout" id="workspace" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <h2>Days</h2>
+        <input type="search" id="dayFilter" placeholder="Filter days…" />
+      </div>
+      <nav class="day-list" id="dayList" aria-label="Course days"></nav>
+    </aside>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="day-kicker" id="dayKicker">Day</p>
+          <h2 id="dayTitle">Loading…</h2>
+        </div>
+        <div class="panel-actions">
+          <button type="button" class="ghost" id="btnPrev">Prev</button>
+          <button type="button" class="ghost" id="btnNext">Next</button>
+          <button type="button" class="primary" id="btnDone">Mark done</button>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab active" data-tab="learn" role="tab">Learn</button>
+        <button type="button" class="tab" data-tab="practice" role="tab">Practice</button>
+        <button type="button" class="tab" data-tab="quiz" role="tab">Quiz</button>
+        <button type="button" class="tab" data-tab="help" role="tab">Help</button>
+      </div>
+
+      <div class="tab-panels">
+        <article class="tab-panel active" id="tab-learn" data-panel="learn">
+          <div class="md" id="notesView"></div>
+        </article>
+
+        <article class="tab-panel" id="tab-practice" data-panel="practice">
+          <div class="practice-bar">
+            <label>
+              Example
+              <select id="exampleSelect"></select>
+            </label>
+            <button type="button" class="primary" id="btnRun">Run</button>
+          </div>
+          <textarea id="editor" spellcheck="false" aria-label="C++ source"></textarea>
+          <pre class="output" id="output" aria-live="polite">Output appears here.</pre>
+        </article>
+
+        <article class="tab-panel" id="tab-quiz" data-panel="quiz">
+          <div class="md" id="questionsView"></div>
+          <button type="button" class="ghost" id="btnReveal">Reveal answers</button>
+          <div class="md answers-hidden" id="answersView"></div>
+        </article>
+
+        <article class="tab-panel" id="tab-help" data-panel="help">
+          <form class="help-form" id="helpForm">
+            <input type="search" id="helpInput" placeholder="Topic: pointer, move, raii, ub…" />
+            <button type="submit" class="primary">Explain</button>
+          </form>
+          <div class="help-card" id="helpCard">
+            <h3>Stuck on a word?</h3>
+            <p>Try <button type="button" class="linkish" data-help="pointer">pointer</button>,
+              <button type="button" class="linkish" data-help="reference">reference</button>,
+              <button type="button" class="linkish" data-help="move">move</button>,
+              <button type="button" class="linkish" data-help="raii">RAII</button>,
+              <button type="button" class="linkish" data-help="ub">UB</button>,
+              <button type="button" class="linkish" data-help="virtual">virtual</button>.</p>
+          </div>
+          <div id="searchResults" class="search-results"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>GitHub Pages · Run uses Wandbox online compiler</span>
+    <a href="https://github.com/lavprasad/c-_badsha" target="_blank" rel="noopener">Source</a>
+  </footer>
+
+  <script src="hub/static/app.js"></script>
+</body>
+</html>

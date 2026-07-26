@@ -1,6 +1,12 @@
 # Day 162 -- Sorting deep dive
 
-Today's goal: build a working mental model of **Sorting deep dive** and practice it with small, compile-ready examples.
+Today's goal: understand **Sorting deep dive** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,221 @@ Today's goal: build a working mental model of **Sorting deep dive** and practice
 
 ## 1. Quicksort intuition
 
-Focus for this concept: understand **what problem `Quicksort intuition` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Quicksort intuition` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Quicksort intuition** — fits inside the wider theme of Sorting deep dive. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Quicksort intuition
+#include <iostream>
+int main() {
+  std::cout << "practice: Quicksort intuition\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Quicksort intuition` before you write code that uses it.
+- **Common mistake:** Using `Quicksort intuition` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Mergesort
 
-Focus for this concept: understand **what problem `Mergesort` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Mergesort` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Mergesort** — fits inside the wider theme of Sorting deep dive. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Mergesort
+#include <iostream>
+int main() {
+  std::cout << "practice: Mergesort\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Mergesort` before you write code that uses it.
+- **Common mistake:** Using `Mergesort` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Heapsort
 
-Focus for this concept: understand **what problem `Heapsort` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Heapsort` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+The heap lives until you release it. Prefer smart pointers and containers over raw `new`/`delete`. If you must use raw ownership, every `new` has exactly one matching `delete` on every path.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Prefer:
+auto p = std::make_unique<int[]>(10);
+// instead of new int[10] / delete[]
+```
+
+- **Remember:** Match `new` with `delete` and `new[]` with `delete[]`.
+- **Common mistake:** Using `delete` on array memory allocated with `new[]`.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Stability
 
-Focus for this concept: understand **what problem `Stability` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Stability` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Stability** — fits inside the wider theme of Sorting deep dive. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Stability
+#include <iostream>
+int main() {
+  std::cout << "practice: Stability\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Stability` before you write code that uses it.
+- **Common mistake:** Using `Stability` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. std::sort realities
 
-Focus for this concept: understand **what problem `std::sort realities` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `std::sort realities` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+STL algorithms are verbs over iterator ranges. Prefer them over hand-rolled loops when the intent matches (`find`, `sort`, `transform`). The erase-remove idiom deletes elements by value/predicate from a sequence container.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+v.erase(std::remove(v.begin(), v.end(), 0), v.end());
+std::sort(v.begin(), v.end());
+```
+
+- **Remember:** `remove` only slides elements — you still need `erase`.
+- **Common mistake:** Calling `std::remove` and forgetting the container `erase`.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Partial sort
 
-Focus for this concept: understand **what problem `Partial sort` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Partial sort` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Partial sort** — fits inside the wider theme of Sorting deep dive. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Partial sort
+#include <iostream>
+int main() {
+  std::cout << "practice: Partial sort\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Partial sort` before you write code that uses it.
+- **Common mistake:** Using `Partial sort` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Counting/radix idea
 
-Focus for this concept: understand **what problem `Counting/radix idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Counting/radix idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Counting/radix idea** — fits inside the wider theme of Sorting deep dive. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Counting/radix idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Counting/radix idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Counting/radix idea` before you write code that uses it.
+- **Common mistake:** Using `Counting/radix idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Comparator strict weak ordering
 
-Focus for this concept: understand **what problem `Comparator strict weak ordering` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Comparator strict weak ordering` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Comparator strict weak ordering** — fits inside the wider theme of Sorting deep dive. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Comparator strict weak ordering
+#include <iostream>
+int main() {
+  std::cout << "practice: Comparator strict weak ordering\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Comparator strict weak ordering` before you write code that uses it.
+- **Common mistake:** Using `Comparator strict weak ordering` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Debugging bad comparators
 
-Focus for this concept: understand **what problem `Debugging bad comparators` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Debugging bad comparators` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Assertions document invariants. `assert` is for runtime checks in debug builds; `static_assert` fails at compile time. Sanitizers catch many memory and UB bugs early.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <cassert>
+assert(index < size);
+static_assert(sizeof(int) >= 4, "need 32-bit int");
+```
+
+- **Remember:** Asserts are not for user-facing error handling.
+- **Common mistake:** Putting required validation only in `assert` — it disappears in release (`NDEBUG`).
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Sort practice
 
-Focus for this concept: understand **what problem `Sort practice` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Sort practice` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Sort practice** — fits inside the wider theme of Sorting deep dive. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Sort practice
+#include <iostream>
+int main() {
+  std::cout << "practice: Sort practice\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Sort practice` before you write code that uses it.
+- **Common mistake:** Using `Sort practice` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 162
 
 - Explain `Sorting deep dive` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

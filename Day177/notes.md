@@ -1,6 +1,12 @@
 # Day 177 -- Performance case studies
 
-Today's goal: build a working mental model of **Performance case studies** and practice it with small, compile-ready examples.
+Today's goal: understand **Performance case studies** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,227 @@ Today's goal: build a working mental model of **Performance case studies** and p
 
 ## 1. Unnecessary copies
 
-Focus for this concept: understand **what problem `Unnecessary copies` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Unnecessary copies` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Unnecessary copies** — fits inside the wider theme of Performance case studies. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Unnecessary copies
+#include <iostream>
+int main() {
+  std::cout << "practice: Unnecessary copies\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Unnecessary copies` before you write code that uses it.
+- **Common mistake:** Using `Unnecessary copies` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Alloc churn
 
-Focus for this concept: understand **what problem `Alloc churn` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Alloc churn` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Alloc churn** — fits inside the wider theme of Performance case studies. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Alloc churn
+#include <iostream>
+int main() {
+  std::cout << "practice: Alloc churn\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Alloc churn` before you write code that uses it.
+- **Common mistake:** Using `Alloc churn` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Cache misses
 
-Focus for this concept: understand **what problem `Cache misses` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Cache misses` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Cache misses** — fits inside the wider theme of Performance case studies. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Cache misses
+#include <iostream>
+int main() {
+  std::cout << "practice: Cache misses\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Cache misses` before you write code that uses it.
+- **Common mistake:** Using `Cache misses` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Lock contention
 
-Focus for this concept: understand **what problem `Lock contention` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Lock contention` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Lock contention** — fits inside the wider theme of Performance case studies. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Lock contention
+#include <iostream>
+int main() {
+  std::cout << "practice: Lock contention\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Lock contention` before you write code that uses it.
+- **Common mistake:** Using `Lock contention` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. I/O wait
 
-Focus for this concept: understand **what problem `I/O wait` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `I/O wait` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **I/O wait** — fits inside the wider theme of Performance case studies. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: I/O wait
+#include <iostream>
+int main() {
+  std::cout << "practice: I/O wait\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `I/O wait` before you write code that uses it.
+- **Common mistake:** Using `I/O wait` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Algorithmic miss
 
-Focus for this concept: understand **what problem `Algorithmic miss` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Algorithmic miss` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+STL algorithms are verbs over iterator ranges. Prefer them over hand-rolled loops when the intent matches (`find`, `sort`, `transform`). The erase-remove idiom deletes elements by value/predicate from a sequence container.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+v.erase(std::remove(v.begin(), v.end(), 0), v.end());
+std::sort(v.begin(), v.end());
+```
+
+- **Remember:** `remove` only slides elements — you still need `erase`.
+- **Common mistake:** Calling `std::remove` and forgetting the container `erase`.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Before/after metrics
 
-Focus for this concept: understand **what problem `Before/after metrics` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Before/after metrics` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Before/after metrics** — fits inside the wider theme of Performance case studies. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Before/after metrics
+#include <iostream>
+int main() {
+  std::cout << "practice: Before/after metrics\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Before/after metrics` before you write code that uses it.
+- **Common mistake:** Using `Before/after metrics` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Regressions
 
-Focus for this concept: understand **what problem `Regressions` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Regressions` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Regressions** — fits inside the wider theme of Performance case studies. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Regressions
+#include <iostream>
+int main() {
+  std::cout << "practice: Regressions\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Regressions` before you write code that uses it.
+- **Common mistake:** Using `Regressions` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Guardrails
 
-Focus for this concept: understand **what problem `Guardrails` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Guardrails` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Guardrails** — fits inside the wider theme of Performance case studies. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Guardrails
+#include <iostream>
+int main() {
+  std::cout << "practice: Guardrails\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Guardrails` before you write code that uses it.
+- **Common mistake:** Using `Guardrails` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Optimize a pipeline
 
-Focus for this concept: understand **what problem `Optimize a pipeline` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Optimize a pipeline` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Optimize a pipeline** — fits inside the wider theme of Performance case studies. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Optimize a pipeline
+#include <iostream>
+int main() {
+  std::cout << "practice: Optimize a pipeline\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Optimize a pipeline` before you write code that uses it.
+- **Common mistake:** Using `Optimize a pipeline` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 177
 
 - Explain `Performance case studies` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

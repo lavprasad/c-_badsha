@@ -1,6 +1,12 @@
 # Day 84 -- Condition variables
 
-Today's goal: build a working mental model of **Condition variables** and practice it with small, compile-ready examples.
+Today's goal: understand **Condition variables** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,231 @@ Today's goal: build a working mental model of **Condition variables** and practi
 
 ## 1. wait / notify
 
-Focus for this concept: understand **what problem `wait / notify` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `wait / notify` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **wait / notify** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: wait / notify
+#include <iostream>
+int main() {
+  std::cout << "practice: wait / notify\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `wait / notify` before you write code that uses it.
+- **Common mistake:** Using `wait / notify` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Spurious wakeups
 
-Focus for this concept: understand **what problem `Spurious wakeups` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Spurious wakeups` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Spurious wakeups** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Spurious wakeups
+#include <iostream>
+int main() {
+  std::cout << "practice: Spurious wakeups\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Spurious wakeups` before you write code that uses it.
+- **Common mistake:** Using `Spurious wakeups` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Predicate waits
 
-Focus for this concept: understand **what problem `Predicate waits` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Predicate waits` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Predicate waits** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Predicate waits
+#include <iostream>
+int main() {
+  std::cout << "practice: Predicate waits\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Predicate waits` before you write code that uses it.
+- **Common mistake:** Using `Predicate waits` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Producer-consumer
 
-Focus for this concept: understand **what problem `Producer-consumer` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Producer-consumer` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Producer-consumer** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Producer-consumer
+#include <iostream>
+int main() {
+  std::cout << "practice: Producer-consumer\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Producer-consumer` before you write code that uses it.
+- **Common mistake:** Using `Producer-consumer` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. notify_one vs notify_all
 
-Focus for this concept: understand **what problem `notify_one vs notify_all` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `notify_one vs notify_all` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **notify_one vs notify_all** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: notify_one vs notify_all
+#include <iostream>
+int main() {
+  std::cout << "practice: notify_one vs notify_all\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `notify_one vs notify_all` before you write code that uses it.
+- **Common mistake:** Using `notify_one vs notify_all` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. with unique_lock
 
-Focus for this concept: understand **what problem `with unique_lock` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `with unique_lock` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **with unique_lock** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: with unique_lock
+#include <iostream>
+int main() {
+  std::cout << "practice: with unique_lock\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `with unique_lock` before you write code that uses it.
+- **Common mistake:** Using `with unique_lock` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Lost wakeup pitfalls
 
-Focus for this concept: understand **what problem `Lost wakeup pitfalls` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Lost wakeup pitfalls` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Lost wakeup pitfalls** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Lost wakeup pitfalls
+#include <iostream>
+int main() {
+  std::cout << "practice: Lost wakeup pitfalls\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Lost wakeup pitfalls` before you write code that uses it.
+- **Common mistake:** Using `Lost wakeup pitfalls` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Timeout waits
 
-Focus for this concept: understand **what problem `Timeout waits` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Timeout waits` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Timeout waits** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Timeout waits
+#include <iostream>
+int main() {
+  std::cout << "practice: Timeout waits\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Timeout waits` before you write code that uses it.
+- **Common mistake:** Using `Timeout waits` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Shutdown signals
 
-Focus for this concept: understand **what problem `Shutdown signals` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Shutdown signals` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Shutdown signals** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Shutdown signals
+#include <iostream>
+int main() {
+  std::cout << "practice: Shutdown signals\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Shutdown signals` before you write code that uses it.
+- **Common mistake:** Using `Shutdown signals` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A blocking queue
 
-Focus for this concept: understand **what problem `A blocking queue` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A blocking queue` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **A blocking queue** — fits inside the wider theme of Condition variables. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: A blocking queue
+#include <iostream>
+int main() {
+  std::cout << "practice: A blocking queue\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `A blocking queue` before you write code that uses it.
+- **Common mistake:** Using `A blocking queue` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 84
 
 - Explain `Condition variables` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

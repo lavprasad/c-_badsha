@@ -1,6 +1,12 @@
 # Day 28 -- Command-line args
 
-Today's goal: build a working mental model of **Command-line args** and practice it with small, compile-ready examples.
+Today's goal: understand **Command-line args** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,231 @@ Today's goal: build a working mental model of **Command-line args** and practice
 
 ## 1. argc and argv
 
-Focus for this concept: understand **what problem `argc and argv` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `argc and argv` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **argc and argv** — fits inside the wider theme of Command-line args. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: argc and argv
+#include <iostream>
+int main() {
+  std::cout << "practice: argc and argv\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `argc and argv` before you write code that uses it.
+- **Common mistake:** Using `argc and argv` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Parsing flags manually
 
-Focus for this concept: understand **what problem `Parsing flags manually` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Parsing flags manually` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Parsing flags manually** — fits inside the wider theme of Command-line args. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Parsing flags manually
+#include <iostream>
+int main() {
+  std::cout << "practice: Parsing flags manually\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Parsing flags manually` before you write code that uses it.
+- **Common mistake:** Using `Parsing flags manually` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Converting argv to types
 
-Focus for this concept: understand **what problem `Converting argv to types` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Converting argv to types` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Converting argv to types** — fits inside the wider theme of Command-line args. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Converting argv to types
+#include <iostream>
+int main() {
+  std::cout << "practice: Converting argv to types\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Converting argv to types` before you write code that uses it.
+- **Common mistake:** Using `Converting argv to types` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Usage messages
 
-Focus for this concept: understand **what problem `Usage messages` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Usage messages` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Usage messages** — fits inside the wider theme of Command-line args. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Usage messages
+#include <iostream>
+int main() {
+  std::cout << "practice: Usage messages\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Usage messages` before you write code that uses it.
+- **Common mistake:** Using `Usage messages` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Exit codes
 
-Focus for this concept: understand **what problem `Exit codes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Exit codes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Exit codes** — fits inside the wider theme of Command-line args. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Exit codes
+#include <iostream>
+int main() {
+  std::cout << "practice: Exit codes\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Exit codes` before you write code that uses it.
+- **Common mistake:** Using `Exit codes` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Environment variables getenv
 
-Focus for this concept: understand **what problem `Environment variables getenv` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Environment variables getenv` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Environment variables getenv** — fits inside the wider theme of Command-line args. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Environment variables getenv
+#include <iostream>
+int main() {
+  std::cout << "practice: Environment variables getenv\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Environment variables getenv` before you write code that uses it.
+- **Common mistake:** Using `Environment variables getenv` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Path arguments
 
-Focus for this concept: understand **what problem `Path arguments` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Path arguments` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::filesystem` gives portable paths and directory walks. Prefer `path` objects over hand-rolled string concatenation for joining folders.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <filesystem>
+namespace fs = std::filesystem;
+for (auto& e : fs::directory_iterator(".")) {
+  std::cout << e.path() << '\n';
+}
+```
+
+- **Remember:** Check `exists` / handle errors — disks fail.
+- **Common mistake:** Assuming `/` path separators on every OS without using `path`.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Validating input
 
-Focus for this concept: understand **what problem `Validating input` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Validating input` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Validating input** — fits inside the wider theme of Command-line args. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Validating input
+#include <iostream>
+int main() {
+  std::cout << "practice: Validating input\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Validating input` before you write code that uses it.
+- **Common mistake:** Using `Validating input` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Subcommands idea
 
-Focus for this concept: understand **what problem `Subcommands idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Subcommands idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Subcommands idea** — fits inside the wider theme of Command-line args. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Subcommands idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Subcommands idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Subcommands idea` before you write code that uses it.
+- **Common mistake:** Using `Subcommands idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A tiny CLI tool
 
-Focus for this concept: understand **what problem `A tiny CLI tool` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A tiny CLI tool` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 28
 
 - Explain `Command-line args` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

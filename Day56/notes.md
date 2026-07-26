@@ -1,6 +1,12 @@
 # Day 56 -- Friends & encapsulation
 
-Today's goal: build a working mental model of **Friends & encapsulation** and practice it with small, compile-ready examples.
+Today's goal: understand **Friends & encapsulation** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,205 @@ Today's goal: build a working mental model of **Friends & encapsulation** and pr
 
 ## 1. friend functions
 
-Focus for this concept: understand **what problem `friend functions` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `friend functions` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. friend classes
 
-Focus for this concept: understand **what problem `friend classes` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `friend classes` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. When friend is OK
 
-Focus for this concept: understand **what problem `When friend is OK` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `When friend is OK` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Hidden friends idiom
 
-Focus for this concept: understand **what problem `Hidden friends idiom` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Hidden friends idiom` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. operator<< as friend
 
-Focus for this concept: understand **what problem `operator<< as friend` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `operator<< as friend` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Operator overloading lets your types use familiar symbols (`+`, `==`, `<<`) when the meaning is obvious. If the symbol would surprise readers, use a named function instead.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Point { int x, y; };
+bool operator==(Point a, Point b) {
+  return a.x == b.x && a.y == b.y;
+}
+std::ostream& operator<<(std::ostream& os, Point p) {
+  return os << '(' << p.x << ',' << p.y << ')';
+}
+```
+
+- **Remember:** Overload only when the meaning matches built-in intuition.
+- **Common mistake:** Clever operators that hide expensive work or mutate unexpectedly.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Encapsulation metrics
 
-Focus for this concept: understand **what problem `Encapsulation metrics` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Encapsulation metrics` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Getters/setters discipline
 
-Focus for this concept: understand **what problem `Getters/setters discipline` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Getters/setters discipline` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Law of Demeter idea
 
-Focus for this concept: understand **what problem `Law of Demeter idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Law of Demeter idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Testing and friends
 
-Focus for this concept: understand **what problem `Testing and friends` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Testing and friends` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A Matrix friend demo
 
-Focus for this concept: understand **what problem `A Matrix friend demo` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A Matrix friend demo` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Iterators are like advanced pointers into a container. Algorithms take `[begin, end)` half-open ranges. Know when inserts/erases invalidate them.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v{1,2,3};
+for (auto it = v.begin(); it != v.end(); ++it)
+  std::cout << *it << ' ';
+```
+
+- **Remember:** After erase, use the iterator that `erase` returns.
+- **Common mistake:** Incrementing an invalidated iterator → undefined behaviour.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 56
 
 - Explain `Friends & encapsulation` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

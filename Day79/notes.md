@@ -1,6 +1,12 @@
 # Day 79 -- Build systems lite
 
-Today's goal: build a working mental model of **Build systems lite** and practice it with small, compile-ready examples.
+Today's goal: understand **Build systems lite** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,227 @@ Today's goal: build a working mental model of **Build systems lite** and practic
 
 ## 1. Why build systems
 
-Focus for this concept: understand **what problem `Why build systems` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Why build systems` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Why build systems** — fits inside the wider theme of Build systems lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Why build systems
+#include <iostream>
+int main() {
+  std::cout << "practice: Why build systems\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Why build systems` before you write code that uses it.
+- **Common mistake:** Using `Why build systems` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. Make basics
 
-Focus for this concept: understand **what problem `Make basics` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Make basics` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Make basics** — fits inside the wider theme of Build systems lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Make basics
+#include <iostream>
+int main() {
+  std::cout << "practice: Make basics\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Make basics` before you write code that uses it.
+- **Common mistake:** Using `Make basics` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. CMake mental model
 
-Focus for this concept: understand **what problem `CMake mental model` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `CMake mental model` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. targets and deps
 
-Focus for this concept: understand **what problem `targets and deps` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `targets and deps` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **targets and deps** — fits inside the wider theme of Build systems lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: targets and deps
+#include <iostream>
+int main() {
+  std::cout << "practice: targets and deps\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `targets and deps` before you write code that uses it.
+- **Common mistake:** Using `targets and deps` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Debug vs Release
 
-Focus for this concept: understand **what problem `Debug vs Release` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Debug vs Release` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Assertions document invariants. `assert` is for runtime checks in debug builds; `static_assert` fails at compile time. Sanitizers catch many memory and UB bugs early.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <cassert>
+assert(index < size);
+static_assert(sizeof(int) >= 4, "need 32-bit int");
+```
+
+- **Remember:** Asserts are not for user-facing error handling.
+- **Common mistake:** Putting required validation only in `assert` — it disappears in release (`NDEBUG`).
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. Out-of-source builds
 
-Focus for this concept: understand **what problem `Out-of-source builds` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Out-of-source builds` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Out-of-source builds** — fits inside the wider theme of Build systems lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Out-of-source builds
+#include <iostream>
+int main() {
+  std::cout << "practice: Out-of-source builds\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Out-of-source builds` before you write code that uses it.
+- **Common mistake:** Using `Out-of-source builds` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. Compile flags
 
-Focus for this concept: understand **what problem `Compile flags` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Compile flags` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Compile flags** — fits inside the wider theme of Build systems lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Compile flags
+#include <iostream>
+int main() {
+  std::cout << "practice: Compile flags\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Compile flags` before you write code that uses it.
+- **Common mistake:** Using `Compile flags` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Sanitizer builds
 
-Focus for this concept: understand **what problem `Sanitizer builds` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Sanitizer builds` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Assertions document invariants. `assert` is for runtime checks in debug builds; `static_assert` fails at compile time. Sanitizers catch many memory and UB bugs early.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <cassert>
+assert(index < size);
+static_assert(sizeof(int) >= 4, "need 32-bit int");
+```
+
+- **Remember:** Asserts are not for user-facing error handling.
+- **Common mistake:** Putting required validation only in `assert` — it disappears in release (`NDEBUG`).
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Reproducible builds idea
 
-Focus for this concept: understand **what problem `Reproducible builds idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Reproducible builds idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Reproducible builds idea** — fits inside the wider theme of Build systems lite. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Reproducible builds idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Reproducible builds idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Reproducible builds idea` before you write code that uses it.
+- **Common mistake:** Using `Reproducible builds idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. A tiny CMakeLists
 
-Focus for this concept: understand **what problem `A tiny CMakeLists` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `A tiny CMakeLists` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Projects glue skills: clear requirements, small modules, tests, and honest docs. Start with a tiny vertical slice that runs end-to-end, then thicken features.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cerr << "usage: tool <file>\n";
+    return 1;
+  }
+  // ...
+}
+```
+
+- **Remember:** Ship a working subset before polishing edge cases.
+- **Common mistake:** Building scaffolding for weeks with nothing runnable.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 79
 
 - Explain `Build systems lite` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

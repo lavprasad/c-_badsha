@@ -1,6 +1,12 @@
 # Day 104 -- Custom allocators intro
 
-Today's goal: build a working mental model of **Custom allocators intro** and practice it with small, compile-ready examples.
+Today's goal: understand **Custom allocators intro** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,228 @@ Today's goal: build a working mental model of **Custom allocators intro** and pr
 
 ## 1. Allocator requirements idea
 
-Focus for this concept: understand **what problem `Allocator requirements idea` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Allocator requirements idea` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Allocator requirements idea** — fits inside the wider theme of Custom allocators intro. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Allocator requirements idea
+#include <iostream>
+int main() {
+  std::cout << "practice: Allocator requirements idea\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Allocator requirements idea` before you write code that uses it.
+- **Common mistake:** Using `Allocator requirements idea` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. std::allocator
 
-Focus for this concept: understand **what problem `std::allocator` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `std::allocator` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **std::allocator** — fits inside the wider theme of Custom allocators intro. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: std::allocator
+#include <iostream>
+int main() {
+  std::cout << "practice: std::allocator\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `std::allocator` before you write code that uses it.
+- **Common mistake:** Using `std::allocator` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. Stateful allocators
 
-Focus for this concept: understand **what problem `Stateful allocators` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Stateful allocators` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Stateful allocators** — fits inside the wider theme of Custom allocators intro. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Stateful allocators
+#include <iostream>
+int main() {
+  std::cout << "practice: Stateful allocators\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Stateful allocators` before you write code that uses it.
+- **Common mistake:** Using `Stateful allocators` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. Arena/bump allocators
 
-Focus for this concept: understand **what problem `Arena/bump allocators` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Arena/bump allocators` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Arena/bump allocators** — fits inside the wider theme of Custom allocators intro. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Arena/bump allocators
+#include <iostream>
+int main() {
+  std::cout << "practice: Arena/bump allocators\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Arena/bump allocators` before you write code that uses it.
+- **Common mistake:** Using `Arena/bump allocators` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Pool allocators
 
-Focus for this concept: understand **what problem `Pool allocators` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Pool allocators` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Pool allocators** — fits inside the wider theme of Custom allocators intro. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Pool allocators
+#include <iostream>
+int main() {
+  std::cout << "practice: Pool allocators\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Pool allocators` before you write code that uses it.
+- **Common mistake:** Using `Pool allocators` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. PMR overview (C++17)
 
-Focus for this concept: understand **what problem `PMR overview (C++17)` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `PMR overview (C++17)` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **PMR overview (C++17)** — fits inside the wider theme of Custom allocators intro. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: PMR overview (C++17)
+#include <iostream>
+int main() {
+  std::cout << "practice: PMR overview (C++17)\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `PMR overview (C++17)` before you write code that uses it.
+- **Common mistake:** Using `PMR overview (C++17)` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. monotonic_buffer_resource
 
-Focus for this concept: understand **what problem `monotonic_buffer_resource` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `monotonic_buffer_resource` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **monotonic_buffer_resource** — fits inside the wider theme of Custom allocators intro. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: monotonic_buffer_resource
+#include <iostream>
+int main() {
+  std::cout << "practice: monotonic_buffer_resource\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `monotonic_buffer_resource` before you write code that uses it.
+- **Common mistake:** Using `monotonic_buffer_resource` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. When custom allocators
 
-Focus for this concept: understand **what problem `When custom allocators` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `When custom allocators` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **When custom allocators** — fits inside the wider theme of Custom allocators intro. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: When custom allocators
+#include <iostream>
+int main() {
+  std::cout << "practice: When custom allocators\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `When custom allocators` before you write code that uses it.
+- **Common mistake:** Using `When custom allocators` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. Debugging allocators
 
-Focus for this concept: understand **what problem `Debugging allocators` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Debugging allocators` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Assertions document invariants. `assert` is for runtime checks in debug builds; `static_assert` fails at compile time. Sanitizers catch many memory and UB bugs early.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+#include <cassert>
+assert(index < size);
+static_assert(sizeof(int) >= 4, "need 32-bit int");
+```
+
+- **Remember:** Asserts are not for user-facing error handling.
+- **Common mistake:** Putting required validation only in `assert` — it disappears in release (`NDEBUG`).
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Arena demo
 
-Focus for this concept: understand **what problem `Arena demo` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Arena demo` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Today's idea — **Arena demo** — fits inside the wider theme of Custom allocators intro. Read it as a tool: what job does it do, what rules does it enforce, and what breaks if you ignore those rules?
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+// Explore: Arena demo
+#include <iostream>
+int main() {
+  std::cout << "practice: Arena demo\n";
+  return 0;
+}
+```
+
+- **Remember:** State one invariant for `Arena demo` before you write code that uses it.
+- **Common mistake:** Using `Arena demo` by copy-paste without knowing what it owns or when it is valid.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 104
 
 - Explain `Custom allocators intro` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.

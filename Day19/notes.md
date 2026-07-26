@@ -1,6 +1,12 @@
 # Day 19 -- std::array & std::vector mastery
 
-Today's goal: build a working mental model of **std::array & std::vector mastery** and practice it with small, compile-ready examples.
+Today's goal: understand **std::array & std::vector mastery** in plain English, see a tiny code sample for each idea, then practice in `examples/`.
+
+How to study this day:
+1. Read each concept's **Plain English** section.
+2. Skim the code sample -- predict what it does.
+3. Run the matching file under `examples/`.
+4. Only then try `questions.md`.
 
 | # | Concept |
 |--:|---------|
@@ -19,151 +25,205 @@ Today's goal: build a working mental model of **std::array & std::vector mastery
 
 ## 1. std::array vs C array
 
-Focus for this concept: understand **what problem `std::array vs C array` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `std::array vs C array` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::vector` is a growable array in contiguous memory — your default sequence container. `reserve` avoids repeated reallocations. Reallocation invalidates pointers/iterators into the vector.
 
-Practice prompt:
-- Open `examples/01_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v;
+v.reserve(100);
+for (int i = 0; i < 100; ++i) v.push_back(i);
+```
+
+- **Remember:** Call `reserve` when you know the final size ahead of time.
+- **Common mistake:** Keeping a pointer/iterator into a vector across a `push_back` that reallocates.
+
+Practice: open `examples/01_*.cpp`, predict the output, change one line, re-predict.
 
 ## 2. vector growth strategy
 
-Focus for this concept: understand **what problem `vector growth strategy` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `vector growth strategy` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::vector` is a growable array in contiguous memory — your default sequence container. `reserve` avoids repeated reallocations. Reallocation invalidates pointers/iterators into the vector.
 
-Practice prompt:
-- Open `examples/02_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v;
+v.reserve(100);
+for (int i = 0; i < 100; ++i) v.push_back(i);
+```
+
+- **Remember:** Call `reserve` when you know the final size ahead of time.
+- **Common mistake:** Keeping a pointer/iterator into a vector across a `push_back` that reallocates.
+
+Practice: open `examples/02_*.cpp`, predict the output, change one line, re-predict.
 
 ## 3. reserve vs resize
 
-Focus for this concept: understand **what problem `reserve vs resize` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `reserve vs resize` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::vector` is a growable array in contiguous memory — your default sequence container. `reserve` avoids repeated reallocations. Reallocation invalidates pointers/iterators into the vector.
 
-Practice prompt:
-- Open `examples/03_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v;
+v.reserve(100);
+for (int i = 0; i < 100; ++i) v.push_back(i);
+```
+
+- **Remember:** Call `reserve` when you know the final size ahead of time.
+- **Common mistake:** Keeping a pointer/iterator into a vector across a `push_back` that reallocates.
+
+Practice: open `examples/03_*.cpp`, predict the output, change one line, re-predict.
 
 ## 4. emplace_back vs push_back
 
-Focus for this concept: understand **what problem `emplace_back vs push_back` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `emplace_back vs push_back` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::vector` is a growable array in contiguous memory — your default sequence container. `reserve` avoids repeated reallocations. Reallocation invalidates pointers/iterators into the vector.
 
-Practice prompt:
-- Open `examples/04_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v;
+v.reserve(100);
+for (int i = 0; i < 100; ++i) v.push_back(i);
+```
+
+- **Remember:** Call `reserve` when you know the final size ahead of time.
+- **Common mistake:** Keeping a pointer/iterator into a vector across a `push_back` that reallocates.
+
+Practice: open `examples/04_*.cpp`, predict the output, change one line, re-predict.
 
 ## 5. Iterators and invalidation
 
-Focus for this concept: understand **what problem `Iterators and invalidation` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Iterators and invalidation` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::vector` is a growable array in contiguous memory — your default sequence container. `reserve` avoids repeated reallocations. Reallocation invalidates pointers/iterators into the vector.
 
-Practice prompt:
-- Open `examples/05_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v;
+v.reserve(100);
+for (int i = 0; i < 100; ++i) v.push_back(i);
+```
+
+- **Remember:** Call `reserve` when you know the final size ahead of time.
+- **Common mistake:** Keeping a pointer/iterator into a vector across a `push_back` that reallocates.
+
+Practice: open `examples/05_*.cpp`, predict the output, change one line, re-predict.
 
 ## 6. erase-remove idiom preview
 
-Focus for this concept: understand **what problem `erase-remove idiom preview` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `erase-remove idiom preview` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::vector` is a growable array in contiguous memory — your default sequence container. `reserve` avoids repeated reallocations. Reallocation invalidates pointers/iterators into the vector.
 
-Practice prompt:
-- Open `examples/06_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v;
+v.reserve(100);
+for (int i = 0; i < 100; ++i) v.push_back(i);
+```
+
+- **Remember:** Call `reserve` when you know the final size ahead of time.
+- **Common mistake:** Keeping a pointer/iterator into a vector across a `push_back` that reallocates.
+
+Practice: open `examples/06_*.cpp`, predict the output, change one line, re-predict.
 
 ## 7. 2D vectors
 
-Focus for this concept: understand **what problem `2D vectors` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `2D vectors` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::vector` is a growable array in contiguous memory — your default sequence container. `reserve` avoids repeated reallocations. Reallocation invalidates pointers/iterators into the vector.
 
-Practice prompt:
-- Open `examples/07_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v;
+v.reserve(100);
+for (int i = 0; i < 100; ++i) v.push_back(i);
+```
+
+- **Remember:** Call `reserve` when you know the final size ahead of time.
+- **Common mistake:** Keeping a pointer/iterator into a vector across a `push_back` that reallocates.
+
+Practice: open `examples/07_*.cpp`, predict the output, change one line, re-predict.
 
 ## 8. Passing containers efficiently
 
-Focus for this concept: understand **what problem `Passing containers efficiently` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Passing containers efficiently` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::vector` is a growable array in contiguous memory — your default sequence container. `reserve` avoids repeated reallocations. Reallocation invalidates pointers/iterators into the vector.
 
-Practice prompt:
-- Open `examples/08_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v;
+v.reserve(100);
+for (int i = 0; i < 100; ++i) v.push_back(i);
+```
+
+- **Remember:** Call `reserve` when you know the final size ahead of time.
+- **Common mistake:** Keeping a pointer/iterator into a vector across a `push_back` that reallocates.
+
+Practice: open `examples/08_*.cpp`, predict the output, change one line, re-predict.
 
 ## 9. at() vs operator[]
 
-Focus for this concept: understand **what problem `at() vs operator[]` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `at() vs operator[]` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+Operator overloading lets your types use familiar symbols (`+`, `==`, `<<`) when the meaning is obvious. If the symbol would surprise readers, use a named function instead.
 
-Practice prompt:
-- Open `examples/09_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+struct Point { int x, y; };
+bool operator==(Point a, Point b) {
+  return a.x == b.x && a.y == b.y;
+}
+std::ostream& operator<<(std::ostream& os, Point p) {
+  return os << '(' << p.x << ',' << p.y << ')';
+}
+```
+
+- **Remember:** Overload only when the meaning matches built-in intuition.
+- **Common mistake:** Clever operators that hide expensive work or mutate unexpectedly.
+
+Practice: open `examples/09_*.cpp`, predict the output, change one line, re-predict.
 
 ## 10. Capacity vs size
 
-Focus for this concept: understand **what problem `Capacity vs size` solves**, the **rules the language imposes**, and the **failure modes** you'll hit in real code.
+### Plain English
 
-Key points:
-- Define the idea in one sentence: what is `Capacity vs size` for?
-- Name the types / functions / keywords involved.
-- State one invariant you must preserve (ownership, lifetime, complexity, or const).
-- State one common bug and how to spot it.
-- Tie it back to earlier days (types, RAII, STL, templates, concurrency -- whichever applies).
+`std::vector` is a growable array in contiguous memory — your default sequence container. `reserve` avoids repeated reallocations. Reallocation invalidates pointers/iterators into the vector.
 
-Practice prompt:
-- Open `examples/10_*.cpp`, predict the output, then change one line and re-predict.
+### Tiny code
+
+```cpp
+std::vector<int> v;
+v.reserve(100);
+for (int i = 0; i < 100; ++i) v.push_back(i);
+```
+
+- **Remember:** Call `reserve` when you know the final size ahead of time.
+- **Common mistake:** Keeping a pointer/iterator into a vector across a `push_back` that reallocates.
+
+Practice: open `examples/10_*.cpp`, predict the output, change one line, re-predict.
 
 ---
 
 ## What you should be able to do after Day 19
 
 - Explain `std::array & std::vector mastery` to a peer without looking at notes.
-- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day requires C++20+ features).
+- Compile and run all 10 examples with `-std=c++17 -Wall -Wextra` (use newer flags only when the day needs C++20+).
 - Answer the 5 questions in `questions.md` before peeking at `answers.md`.
 - Write one tiny extra program that combines at least 3 of today's concepts.
 
-Now move to `examples/` and run each program. Then attempt `questions.md`.
+Or open this day in the **Badsha hub** (`python3 hub/server.py`) and use Learn / Practice / Quiz tabs.
