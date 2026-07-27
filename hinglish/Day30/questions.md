@@ -1,0 +1,55 @@
+# Day 30 -- 5 Tricky Sawaal
+
+> Theme: **std::pair & std::tuple**
+> `answers.md` me **jhaanke bina** try karo. Pehle apna guess likho, phir compile/check karo.
+
+---
+
+### Q1. Predict / samjhao
+
+Sambandhit: `std::pair basics`
+
+```cpp
+#include <iostream>
+int main() {
+    // Sketch: "std::pair basics" ke rules ignore karo to kya galat ho sakta hai?
+    std::cout << "think about lifetimes, ownership, or complexity\n";
+    return 0;
+}
+```
+
+`std::pair basics` ke aas-paas sabse aam bug kaunsa hai, aur aap use kaise rokoge?
+
+---
+
+### Q2. Design choice
+
+Sambandhit: `std::tuple`
+
+Pehle ke dinon ke kisi simple alternative ke bajaye aap `std::tuple` kab chunoge? Ek thos scenario aur ek ulta scenario batao.
+
+---
+
+### Q3. Compile ya runtime?
+
+Sambandhit: `tie for unpacking`
+
+`tie for unpacking` ki galti se **compile error**, **linker error**, **runtime bug** ya **undefined behaviour** — kaunsa zyada mumkin hai? Ek example ke saath justify karo.
+
+---
+
+### Q4. Complexity / cost
+
+Sambandhit: `Returning multiple values`
+
+`Returning multiple values` ko seedha-saada use karne ka typical time/space cost kya hai, aur ek optimisation ya behtar API choice kya hogi?
+
+---
+
+### Q5. Teen concepts jodo
+
+`std::pair basics`, `tie for unpacking` aur `When to prefer a struct` ko 15-30 line ke program me jodo jo kisi asli tool me dikh sakta ho (CLI, parser, container wrapper, ya concurrency sketch). Kaunse invariants sach rehne chahiye?
+
+---
+
+Jab paanchon ka jawab apne shabdon me de do, tab `answers.md` kholo.

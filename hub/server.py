@@ -137,25 +137,30 @@ class CourseIndex:
         with self._lock:
             return list(self.days)
 
-    def day_payload(self, n: int) -> dict | None:
+    def day_payload(self, n: int, lang: str = "en") -> dict | None:
         ddir = self.root / f"Day{n:02d}"
         if not ddir.is_dir():
             ddir = self.root / f"Day{n}"
             if not ddir.is_dir():
                 return None
+        # Hinglish mirror holds only the .md files; examples stay English.
+        hidir = self.root / "hinglish" / ddir.name
+
+        def md(name: str) -> str:
+            for d in ((hidir,) if lang == "hi" else ()) + (ddir,):
+                f = d / name
+                if f.exists():
+                    return f.read_text(encoding="utf-8", errors="replace")
+            return ""
+
         theme = f"Day {n:02d}"
-        notes = ""
-        questions = ""
-        answers = ""
-        if (ddir / "notes.md").exists():
-            notes = (ddir / "notes.md").read_text(encoding="utf-8", errors="replace")
+        notes = md("notes.md")
+        questions = md("questions.md")
+        answers = md("answers.md")
+        if notes:
             tm = TITLE_RE.search(notes)
             if tm:
                 theme = tm.group(1).strip()
-        if (ddir / "questions.md").exists():
-            questions = (ddir / "questions.md").read_text(encoding="utf-8", errors="replace")
-        if (ddir / "answers.md").exists():
-            answers = (ddir / "answers.md").read_text(encoding="utf-8", errors="replace")
         examples = []
         exdir = ddir / "examples"
         if exdir.is_dir():
@@ -348,7 +353,7 @@ class HubHandler(SimpleHTTPRequestHandler):
             except ValueError:
                 self._json(400, {"error": "bad day"})
                 return
-            payload = INDEX.day_payload(n)
+            payload = INDEX.day_payload(n, (qs.get("lang") or ["en"])[0])
             if not payload:
                 self._json(404, {"error": "day not found"})
                 return

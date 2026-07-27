@@ -44,7 +44,7 @@ This pattern is called **fluent interface** / method chaining. Returning by refe
 
 ### A5. Destructor timing
 
-**Output: `ABBCA`** (as one continuous string)
+**Output: `ABBCCA`** (as one continuous string)
 
 Order:
 1. Construct `a` → `A`

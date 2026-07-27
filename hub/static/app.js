@@ -2,6 +2,7 @@
 (() => {
   const STORAGE_KEY = "badsha_progress_v1";
   const LAST_KEY = "badsha_last_day";
+  const LANG_KEY = "badsha_lang";
 
   /** Base path for project Pages (e.g. /c-_badsha/) or ./ for local static. */
   function detectBase() {
@@ -33,6 +34,7 @@
     answersShown: false,
     help: {},
     searchDocs: null,
+    lang: localStorage.getItem(LANG_KEY) === "hi" ? "hi" : "en",
   };
 
   const $ = (sel) => document.querySelector(sel);
@@ -235,10 +237,17 @@
   async function loadDayStatic(n) {
     const id = dayFolder(n);
     const meta = state.days.find((d) => d.n === n) || { theme: id, examples: [] };
+    // Hinglish mirror lives in hinglish/DayNN/*.md; fall back to English if absent.
+    const doc = (file) =>
+      state.lang === "hi"
+        ? fetchText(joinUrl(BASE, "hinglish", id, file)).catch(() =>
+            fetchText(joinUrl(BASE, id, file)).catch(() => "")
+          )
+        : fetchText(joinUrl(BASE, id, file)).catch(() => "");
     const [notes, questions, answers] = await Promise.all([
-      fetchText(joinUrl(BASE, id, "notes.md")).catch(() => ""),
-      fetchText(joinUrl(BASE, id, "questions.md")).catch(() => ""),
-      fetchText(joinUrl(BASE, id, "answers.md")).catch(() => ""),
+      doc("notes.md"),
+      doc("questions.md"),
+      doc("answers.md"),
     ]);
     const examples = [];
     for (const name of meta.examples || []) {
@@ -403,7 +412,7 @@
 
     const data =
       state.mode === "api"
-        ? await api(`api/day/${n}`)
+        ? await api(`api/day/${n}?lang=${state.lang}`)
         : await loadDayStatic(n);
     state.dayData = data;
     $("#dayTitle").textContent = data.theme;
@@ -518,7 +527,17 @@
     }
   }
 
+  function setLang(lang) {
+    state.lang = lang;
+    localStorage.setItem(LANG_KEY, lang);
+    $("#btnLang").textContent = lang === "hi" ? "हिं Hinglish" : "EN English";
+    if (state.current) openDay(state.current);
+  }
+
   function wire() {
+    $("#btnLang").addEventListener("click", () =>
+      setLang(state.lang === "hi" ? "en" : "hi")
+    );
     $("#brandHome").addEventListener("click", (e) => {
       e.preventDefault();
       showWorkspace(false);
@@ -565,6 +584,8 @@
     $$("[data-help]").forEach((b) =>
       b.addEventListener("click", () => doHelp(b.dataset.help))
     );
+    $("#btnLang").textContent =
+      state.lang === "hi" ? "हिं Hinglish" : "EN English";
   }
 
   async function fetchJsonFirst(urls) {
