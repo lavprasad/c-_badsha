@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>try { if (localStorage.getItem("badsha.theme") === "terminal") document.documentElement.dataset.theme = "terminal"; } catch {}</script>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -23,6 +24,7 @@
     </form>
     <div class="top-meta">
       <span id="gppStatus" class="pill">booting…</span>
+      <button type="button" class="ghost" id="btnTheme" title="Switch theme: HUD / Terminal" aria-pressed="false">◈ HUD</button>
       <button type="button" class="ghost" id="btnLang" title="Switch language / bhasha badlo">EN English</button>
       <button type="button" class="ghost" id="btnContinue">Resume</button>
     </div>

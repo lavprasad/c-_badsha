@@ -359,6 +359,65 @@
     };
   }
 
+  /**
+   * Which in-text `code` mentions are jump targets: `answers.md`, `03_x.cpp`,
+   * `examples/`. A `.cpp` name only links if this day actually has that example
+   * (notes also mention invented files like `main.cpp`).
+   */
+  function refTarget(raw, examples) {
+    const t = raw.trim();
+    if (/^(notes|questions|answers)\.md$/i.test(t)) {
+      return { kind: "md", file: t.toLowerCase() };
+    }
+    if (/^examples\/?$/i.test(t)) return { kind: "example", index: -1 };
+    if (/\.cpp$/i.test(t)) {
+      const name = t.replace(/^examples\//i, "").toLowerCase();
+      const digits = name.match(/^(\d{1,2})/);
+      const prefix = digits ? digits[1].padStart(2, "0") + "_" : null;
+      const index = examples.findIndex(
+        (e) =>
+          e.name.toLowerCase() === name ||
+          (prefix && e.name.startsWith(prefix))
+      );
+      return index >= 0 ? { kind: "example", index } : null;
+    }
+    return null;
+  }
+
+  function linkifyRefs(root) {
+    const examples = (state.dayData && state.dayData.examples) || [];
+    root.querySelectorAll("code").forEach((el) => {
+      if (el.closest("pre")) return; // code samples mention .cpp too — leave them alone
+      const target = refTarget(el.textContent, examples);
+      if (!target) return;
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "xref";
+      b.textContent = el.textContent;
+      b.title = "Open";
+      b.dataset.ref = JSON.stringify(target);
+      el.replaceWith(b);
+    });
+  }
+
+  function openRef(target) {
+    if (target.kind === "md") {
+      if (target.file === "notes.md") {
+        setTab("learn");
+        return;
+      }
+      setTab("quiz");
+      if (target.file === "answers.md" && !state.answersShown) $("#btnReveal").click();
+      return;
+    }
+    setTab("practice");
+    const examples = (state.dayData && state.dayData.examples) || [];
+    if (target.index >= 0 && examples[target.index]) {
+      $("#exampleSelect").value = String(target.index);
+      $("#editor").value = examples[target.index].source;
+    }
+  }
+
   function showWorkspace(show) {
     $("#hero").hidden = show;
     $("#workspace").hidden = !show;
@@ -419,6 +478,9 @@
     $("#notesView").innerHTML = mdToHtml(data.notes);
     $("#questionsView").innerHTML = mdToHtml(data.questions);
     $("#answersView").innerHTML = mdToHtml(data.answers);
+    ["#notesView", "#questionsView", "#answersView"].forEach((s) =>
+      linkifyRefs($(s))
+    );
 
     const sel = $("#exampleSelect");
     sel.innerHTML = "";
@@ -538,6 +600,20 @@
     $("#btnLang").addEventListener("click", () =>
       setLang(state.lang === "hi" ? "en" : "hi")
     );
+    const syncTheme = () => {
+      const on = document.documentElement.dataset.theme === "terminal";
+      $("#btnTheme").textContent = on ? ">_ Terminal" : "◈ HUD";
+      $("#btnTheme").setAttribute("aria-pressed", String(on));
+    };
+    $("#btnTheme").addEventListener("click", () => {
+      const root = document.documentElement;
+      const on = root.dataset.theme !== "terminal";
+      if (on) root.dataset.theme = "terminal";
+      else delete root.dataset.theme;
+      try { localStorage.setItem("badsha.theme", on ? "terminal" : "hud"); } catch {}
+      syncTheme();
+    });
+    syncTheme();
     $("#brandHome").addEventListener("click", (e) => {
       e.preventDefault();
       showWorkspace(false);
@@ -584,6 +660,10 @@
     $$("[data-help]").forEach((b) =>
       b.addEventListener("click", () => doHelp(b.dataset.help))
     );
+    $(".tab-panels").addEventListener("click", (e) => {
+      const b = e.target.closest(".xref");
+      if (b) openRef(JSON.parse(b.dataset.ref));
+    });
     $("#btnLang").textContent =
       state.lang === "hi" ? "हिं Hinglish" : "EN English";
   }
